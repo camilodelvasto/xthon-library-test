@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import AppHeaderx from '@/components/RideForGood/AppHeader.vue';
+import AppHeaderx from '@/components/RideForGood/AppHeaderx.vue';
 import AppBanner from '@/components/RideForGood/AppBanner.vue';
 
 const Components = {

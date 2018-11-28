@@ -2,7 +2,7 @@
   "name": "xthon-library-test",
   "version": "1.0.0",
   "private": true,
-  "main": "src/lib.js",
+  "main": "./dist/xthonLibrary.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

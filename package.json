@@ -1,10 +1,12 @@
 {
-  "name": "mockupper",
-  "version": "0.1.0",
+  "name": "xthon-library-test",
+  "version": "1.0.0",
   "private": true,
+  "main": "src/lib.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "bundle": "vue-cli-service build --target lib --name xthonLibrary",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },

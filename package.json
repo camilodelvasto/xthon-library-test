@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "main": "./dist/xthonLibrary.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],  
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

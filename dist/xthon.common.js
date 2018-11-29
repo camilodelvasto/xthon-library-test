@@ -17182,7 +17182,7 @@ function install (Vue) {
       registerInstance(this);
     }
   });
-
+/*
   Object.defineProperty(Vue.prototype, '$router', {
     get: function get () { return this._routerRoot._router }
   });
@@ -17190,7 +17190,7 @@ function install (Vue) {
   Object.defineProperty(Vue.prototype, '$route', {
     get: function get () { return this._routerRoot._route }
   });
-
+*/
   Vue.component('router-view', View);
   Vue.component('router-link', Link);
 

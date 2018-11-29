@@ -3,6 +3,12 @@ const path = require('path');
 module.exports = {
   chainWebpack: config => {
     config.module.rules.delete('eslint');
+    config.merge({
+      externals: {
+        router: 'vue-router',
+        vuex: "vuex"
+      }
+    })
   },
   css: {
     loaderOptions: {

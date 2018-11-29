@@ -21663,7 +21663,7 @@ var Components = {
   AppHeaderx: AppHeaderx
 };
 Object.keys(Components).forEach(function (name) {
-  external_commonjs_vue_commonjs2_vue_root_Vue_default.a.component(name, filters_namespaceObject[name]);
+  external_commonjs_vue_commonjs2_vue_root_Vue_default.a.component(name, Components[name]);
 });
 /* harmony default export */ var lib = (new external_commonjs_vue_commonjs2_vue_root_Vue_default.a({
   router: router,

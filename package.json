@@ -1,8 +1,8 @@
 {
-  "name": "xthon-library",
+  "name": "xthon-library-test",
   "version": "1.0.0",
   "private": true,
-  "main": "./dist/xthon-library.common.js",
+  "main": "./dist/xthon-library-test.common.js",
   "files": [
     "dist/*",
     "src/*",
@@ -13,7 +13,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "bundle": "vue-cli-service build --target lib --name xthon-library ./src/lib.js",
+    "bundle": "vue-cli-service build --target lib --name xthon-library-test ./src/lib.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },

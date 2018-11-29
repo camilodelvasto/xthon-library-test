@@ -42,7 +42,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"11a5fafe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/general/DonateAction.vue?vue&type=template&id=16ec67de&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4443aff0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/general/DonateAction.vue?vue&type=template&id=16ec67de&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"donate",on:{"click":function($event){_vm.donate()}}},[_vm._t("default")],2)}
 var staticRenderFns = []
 
@@ -137,7 +137,7 @@ component.options.__file = "DonateAction.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"11a5fafe-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/fundraiser/FundraiserGivingLevel.vue?vue&type=template&id=11a545c4&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"4443aff0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/fundraiser/FundraiserGivingLevel.vue?vue&type=template&id=11a545c4&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"level__wrapper"},[_c('div',{staticClass:"level__amount"},[_vm._v(_vm._s(_vm._f("usd")(_vm.level.amount)))]),_c('div',{staticClass:"level__tagline"},[_vm._v(_vm._s(_vm.level.tagline))]),_c('div',{staticClass:"level__description"},[_vm._v(_vm._s(_vm.level.description))]),_c('div',{staticClass:"button level__this-cta is-success is-small"},[_c('DonateAction',{attrs:{"fundraiser-id":_vm.fundraiser.fundraiser_id,"giving-level":_vm.level,"trigger":"fundraiser/lower/right/levels"}},[_vm._v("\n      Donate now\n    ")])],1)])}
 var staticRenderFns = []
 

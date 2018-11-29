@@ -29,8 +29,4 @@ Object.keys(Components).forEach((name) => {
   Vue.component(name, Components[name]);
 });
 
-export default new Vue({
-  router,
-  store,
-  render: h => h(App),
-})
+export default Components

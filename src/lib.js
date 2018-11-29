@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import AppHeaderx from '@/components/RideForGood/AppHeaderx.vue';
-import AppBanner from '@/components/RideForGood/AppBanner.vue';
 
 const Components = {
-  AppHeaderx,
-  AppBanner
+  AppHeaderx
 }
 
 Object.keys(Components).forEach((name) => {

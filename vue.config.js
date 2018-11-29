@@ -5,7 +5,7 @@ module.exports = {
     config.module.rules.delete('eslint');
     config.merge({
       externals: {
-        Router: 'vue-router',
+        "$router": 'vue-router',
         Vuex: "vuex"
       }
     })

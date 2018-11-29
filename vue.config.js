@@ -7,7 +7,8 @@ module.exports = {
       externals: {
         "vue-router": 'vue-router',
         vuex: 'Vuex',
-        axios: "axios"
+        axios: "Axios",
+        "vue-axios": "vue-axios"
       }
     })
   },

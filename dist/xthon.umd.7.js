@@ -17,7 +17,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"9f841f0c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/general/UserDialog.vue?vue&type=template&id=79900a42&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"648405c0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/general/UserDialog.vue?vue&type=template&id=79900a42&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('Modal',{staticClass:"user-dialog-component-wrapper",attrs:{"prevent-body-scroll":false,"state":_vm.state,"disableClose":_vm.disableClose},on:{"modal:close":function($event){_vm.$emit('modal:close')}}},[_c('div',{attrs:{"slot":"header"},slot:"header"},[_vm._t("header",[_vm._v("Processing")])],2),_c('div',{attrs:{"slot":"content"},slot:"content"},[_c('div',{staticClass:"columns is-centered"},[_vm._t("content",[_c('p',[_vm._v("Hang tight, processing...")])])],2),(_vm.spinner)?_c('div',{staticClass:"spinner"},[_c('div',{staticClass:"bounce1"}),_c('div',{staticClass:"bounce2"}),_c('div',{staticClass:"bounce3"})]):_vm._e()])])}
 var staticRenderFns = []
 

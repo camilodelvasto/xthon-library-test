@@ -2606,4 +2606,4 @@ Object.keys(Components).forEach(function (name) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=xthon-library-test.common.js.map
+//# sourceMappingURL=xthon.common.js.map

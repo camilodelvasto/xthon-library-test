@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["xthon-library-test"] = factory(require("vue"));
+		exports["xthon"] = factory(require("vue"));
 	else
-		root["xthon-library-test"] = factory(root["Vue"]);
+		root["xthon"] = factory(root["Vue"]);
 })((typeof self !== 'undefined' ? self : this), function(__WEBPACK_EXTERNAL_MODULE__8bbf__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -2616,4 +2616,4 @@ Object.keys(Components).forEach(function (name) {
 
 /******/ });
 });
-//# sourceMappingURL=xthon-library-test.umd.js.map
+//# sourceMappingURL=xthon.umd.js.map

@@ -391,7 +391,7 @@ var es6_array_sort = __webpack_require__("55dd");
       return __webpack_require__.e(/* import() */ 17).then(__webpack_require__.bind(null, "e1cb"));
     },
     InlineRichTextEditor: function InlineRichTextEditor() {
-      return Promise.all(/* import() */[__webpack_require__.e(71), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, "1573"));
+      return Promise.all(/* import() */[__webpack_require__.e(71), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, "1573"));
     }
   },
   data: function data() {

@@ -96,7 +96,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "css/" + ({}[chunkId]||chunkId) + "." + {"0":"d63cbcc0","1":"6ce1bd9f","2":"f55ad979","3":"54dd8a39","4":"31d6cfe0","5":"012d39aa","6":"8e84def5","7":"7cfd168c","8":"d725d0fd","9":"24e94664","10":"9f8a80b6","11":"31d6cfe0","12":"31d6cfe0","13":"2d030178","14":"de174fcf","15":"e483d5d3","16":"9124119a","17":"46202147","18":"fda3bfbd","19":"de9cafe2","20":"6648bb69","22":"d970b23d","23":"154f9c42","24":"501e5d45","25":"0d1d4784","26":"24d1c9cd","27":"b9addc4d","28":"55b0ab90","29":"97ae4208","30":"81928974","31":"fb8b3d1c","32":"9ea829f7","33":"1a15fe6d","34":"79aeb586","35":"645fb9c6","36":"065b8a01","37":"44293522","38":"950d702e","39":"c9e88ac6","40":"20ab9837","41":"24e94664","42":"0e433876","43":"11c39511","44":"daa03c1b","45":"7c3a89b9","46":"630fb3db","47":"852c0dd7","48":"2c6fc9d7","49":"cba31684","50":"958f2355","51":"fe35807c","52":"6ae95e53","53":"0dac530d","54":"68a3dc4a","55":"0e433876","56":"589a5c17","57":"643593ee","58":"0e433876","59":"5a2bd5a5","60":"3a84bae9","61":"0b60d008","62":"4656f93c","63":"2c6fc9d7","64":"34a4ba9a","65":"49166b17","66":"0e433876","67":"0e433876","68":"8f3f30d7","69":"0e433876","70":"31d6cfe0","71":"6f7f0e0d","72":"31d6cfe0"}[chunkId] + ".css";
+/******/ 				var href = "css/" + ({}[chunkId]||chunkId) + "." + {"0":"d63cbcc0","1":"6ce1bd9f","2":"f55ad979","3":"54dd8a39","4":"31d6cfe0","5":"012d39aa","6":"8e84def5","7":"7cfd168c","8":"d725d0fd","9":"24e94664","10":"9f8a80b6","11":"31d6cfe0","12":"31d6cfe0","13":"2d030178","14":"de174fcf","15":"e483d5d3","16":"9124119a","17":"46202147","18":"fda3bfbd","19":"de9cafe2","20":"6648bb69","22":"d970b23d","23":"154f9c42","24":"99160a65","25":"0d1d4784","26":"24d1c9cd","27":"b9addc4d","28":"55b0ab90","29":"97ae4208","30":"81928974","31":"fb8b3d1c","32":"9ea829f7","33":"1a15fe6d","34":"79aeb586","35":"065b8a01","36":"de5bf0b5","37":"44293522","38":"950d702e","39":"c9e88ac6","40":"20ab9837","41":"24e94664","42":"0e433876","43":"11c39511","44":"daa03c1b","45":"7c3a89b9","46":"630fb3db","47":"852c0dd7","48":"2c6fc9d7","49":"958f2355","50":"cba31684","51":"fe35807c","52":"6ae95e53","53":"0dac530d","54":"68a3dc4a","55":"0e433876","56":"589a5c17","57":"643593ee","58":"0e433876","59":"5a2bd5a5","60":"3a84bae9","61":"0b60d008","62":"4656f93c","63":"2c6fc9d7","64":"34a4ba9a","65":"49166b17","66":"0e433876","67":"0e433876","68":"8f3f30d7","69":"0e433876","70":"31d6cfe0","71":"6f7f0e0d","72":"31d6cfe0"}[chunkId] + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -12721,13 +12721,6 @@ module.exports = (
 
 /***/ }),
 
-/***/ "7b15":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "img/logo-rideforgood-400x139.01db991d.png";
-
-/***/ }),
-
 /***/ "7d1a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16601,66 +16594,14 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 component.options.__file = "App.vue"
 /* harmony default export */ var App = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"f941195e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/RideForGood/AppHeaderx.vue?vue&type=template&id=d4d5660e&
-var AppHeaderxvue_type_template_id_d4d5660e_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"site-header",attrs:{"id":"site-header"}},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"header-top d-flex justify-content-between align-items-center py-1"},[_c('router-link',{staticClass:"logo-link",attrs:{"to":"/"}},[_c('img',{attrs:{"src":__webpack_require__("7b15"),"alt":"CalendarForGood"}})]),_c('div',{staticClass:"header-top__nav-section"},[_c('ul',{staticClass:"nav justify-content-end"},[_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link px-1",attrs:{"to":"/register"}},[_vm._v("Register")])],1),_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link px-1 pr-0",attrs:{"to":"/login"}},[_vm._v("Login")])],1)]),_vm._m(0)])],1)]),_c('div',{staticClass:"header-nav bg-primary"},[_c('nav',{staticClass:"navbar navbar-expand-lg py-0"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"collapse navbar-collapse",attrs:{"id":"navbar-content"}},[_c('ul',{staticClass:"navbar-nav w-100"},[_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link",attrs:{"to":"/"}},[_vm._v("Home")])],1),_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link",attrs:{"to":"/"}},[_vm._v("About Us")])],1),_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link",attrs:{"to":"/"}},[_vm._v("Volunteer")])],1),_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link",attrs:{"to":"/"}},[_vm._v("Nonprofits")])],1),_c('li',{staticClass:"nav-item"},[_c('router-link',{staticClass:"nav-link",attrs:{"to":"/"}},[_vm._v("Contact Us")])],1),_c('li',{staticClass:"nav-item ml-auto"},[_c('router-link',{staticClass:"nav-link bg-secondary",attrs:{"to":"/"}},[_vm._v("Donate")])],1)])])])])])])}
-var AppHeaderxvue_type_template_id_d4d5660e_staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ul',{staticClass:"nav social-nav justify-content-end"},[_c('li',{staticClass:"nav-item"},[_c('a',{staticClass:"nav-link bg-facebook",attrs:{"href":"#"}},[_c('i',{staticClass:"fab fa-facebook-f"}),_c('span',{staticClass:"sr-only"},[_vm._v("Facebook")])])]),_c('li',{staticClass:"nav-item"},[_c('a',{staticClass:"nav-link bg-twitter",attrs:{"href":"#"}},[_c('i',{staticClass:"fab fa-twitter"}),_c('span',{staticClass:"sr-only"},[_vm._v("Twitter")])])]),_c('li',{staticClass:"nav-item"},[_c('a',{staticClass:"nav-link bg-instagram",attrs:{"href":"#"}},[_c('i',{staticClass:"fab fa-instagram"}),_c('span',{staticClass:"sr-only"},[_vm._v("Instagram")])])])])}]
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"f941195e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/RideForGood/AppHeaderx.vue?vue&type=template&id=e55becd8&
+var AppHeaderxvue_type_template_id_e55becd8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',{staticClass:"site-header",attrs:{"id":"site-header"}},[_vm._v("\n  inner\n")])}
+var AppHeaderxvue_type_template_id_e55becd8_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/RideForGood/AppHeaderx.vue?vue&type=template&id=d4d5660e&
+// CONCATENATED MODULE: ./src/components/RideForGood/AppHeaderx.vue?vue&type=template&id=e55becd8&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/RideForGood/AppHeaderx.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -16686,8 +16627,8 @@ var AppHeaderxvue_type_style_index_0_lang_scss_ = __webpack_require__("8e90");
 
 var AppHeaderx_component = Object(componentNormalizer["a" /* default */])(
   RideForGood_AppHeaderxvue_type_script_lang_js_,
-  AppHeaderxvue_type_template_id_d4d5660e_render,
-  AppHeaderxvue_type_template_id_d4d5660e_staticRenderFns,
+  AppHeaderxvue_type_template_id_e55becd8_render,
+  AppHeaderxvue_type_template_id_e55becd8_staticRenderFns,
   false,
   null,
   null,
@@ -19305,7 +19246,7 @@ var VolunteerPage = function VolunteerPage() {
 };
 
 var Fundraiser = function Fundraiser() {
-  return __webpack_require__.e(/* import() */ 36).then(__webpack_require__.bind(null, "dba2"));
+  return __webpack_require__.e(/* import() */ 35).then(__webpack_require__.bind(null, "dba2"));
 };
 
 var Default404 = function Default404() {

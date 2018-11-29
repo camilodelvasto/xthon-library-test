@@ -1,4 +1,4 @@
-((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[24,5,18,50,58,64],{
+((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[24,5,18,49,58,64],{
 
 /***/ "012e":
 /***/ (function(module, exports, __webpack_require__) {
@@ -467,6 +467,13 @@ component.options.__file = "NonprofitForm.vue"
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/act.840ce471.png";
+
+/***/ }),
+
+/***/ "7b15":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/logo-rideforgood-400x139.01db991d.png";
 
 /***/ }),
 

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import AppHeaderx from '@/components/RideForGood/AppHeaderx.vue';
+import Datetime from 'vue-datetime';
 
 import router from './router';
 import store from './store';
@@ -27,4 +28,4 @@ Object.keys(Components).forEach((name) => {
   Vue.component(name, filters[name]);
 });
 
-export default Components
+export default Vue

@@ -24,7 +24,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"18f64bca-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Default404.vue?vue&type=template&id=10743e22&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ef6b7e28-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/Default404.vue?vue&type=template&id=10743e22&scoped=true&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"view-user-account-page"},[_c('AppHeader',{attrs:{"layout":"page"}}),_c('section',{staticClass:"centered-content"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title title-gray"},[_vm._v("404 - Not found!")]),_c('p',[_vm._v("The requested page couldn't be found. Please "),_c('router-link',{attrs:{"to":"/"}},[_vm._v("go to the home page")]),_vm._v(" or navigate using the menu above.")],1)])]),_c('AppFooter')],1)}
 var staticRenderFns = []
 

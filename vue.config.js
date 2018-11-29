@@ -4,7 +4,10 @@ module.exports = {
   chainWebpack: config => {
     config.module.rules.delete('eslint');
     config.merge({
-      externals: ["$router", "vuex"]
+      externals: {
+        $router: 'vue-router',
+        vuex: "vuex"
+      }
     })
   },
   css: {

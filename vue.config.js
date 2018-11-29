@@ -6,7 +6,8 @@ module.exports = {
     config.merge({
       externals: {
         Router: 'vue-router',
-        Vuex: "vuex"
+        Vuex: "vuex",
+        axios: "axios"
       }
     })
   },

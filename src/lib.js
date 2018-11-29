@@ -6,7 +6,7 @@ import Datetime from 'vue-datetime';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
-import * as filters from './util/filters';
+import * as filters from './util/filters.js';
 import SmoothScroll from '@/components/plugins/smoothScroll';
 import 'vue-datetime/dist/vue-datetime.css';
 Vue.config.productionTip = false;

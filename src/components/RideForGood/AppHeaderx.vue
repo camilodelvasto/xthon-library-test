@@ -8,10 +8,10 @@
         <div class="header-top__nav-section">
           <ul class="nav justify-content-end">
             <li class="nav-item">
-              <router-link to="/register" class="nav-link px-1">Register</router-link>
+              <router-link to="/register" class="nav-link px-1">RegisterX</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/login" class="nav-link px-1 pr-0">Login</router-link>
+              <router-link to="/login" class="nav-link px-1 pr-0">LoginX</router-link>
             </li>
           </ul>
           <ul class="nav social-nav justify-content-end">

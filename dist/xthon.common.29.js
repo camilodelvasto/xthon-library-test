@@ -1,4 +1,11 @@
-((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[29,57],{
+((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[29,54,64],{
+
+/***/ "2606":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
 
 /***/ "3372":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -101,13 +108,6 @@ function stripTags(text) {
 
 /***/ }),
 
-/***/ "3cdb":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "4052":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -123,6 +123,739 @@ function stripTags(text) {
 /* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateAction_vue_vue_type_style_index_0_id_16ec67de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateAction_vue_vue_type_style_index_0_id_16ec67de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
  /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateAction_vue_vue_type_style_index_0_id_16ec67de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "5abe":
+/***/ (function(module, exports) {
+
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the W3C SOFTWARE AND DOCUMENT NOTICE AND LICENSE.
+ *
+ *  https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+ *
+ */
+
+(function(window, document) {
+'use strict';
+
+
+// Exits early if all IntersectionObserver and IntersectionObserverEntry
+// features are natively supported.
+if ('IntersectionObserver' in window &&
+    'IntersectionObserverEntry' in window &&
+    'intersectionRatio' in window.IntersectionObserverEntry.prototype) {
+
+  // Minimal polyfill for Edge 15's lack of `isIntersecting`
+  // See: https://github.com/w3c/IntersectionObserver/issues/211
+  if (!('isIntersecting' in window.IntersectionObserverEntry.prototype)) {
+    Object.defineProperty(window.IntersectionObserverEntry.prototype,
+      'isIntersecting', {
+      get: function () {
+        return this.intersectionRatio > 0;
+      }
+    });
+  }
+  return;
+}
+
+
+/**
+ * An IntersectionObserver registry. This registry exists to hold a strong
+ * reference to IntersectionObserver instances currently observing a target
+ * element. Without this registry, instances without another reference may be
+ * garbage collected.
+ */
+var registry = [];
+
+
+/**
+ * Creates the global IntersectionObserverEntry constructor.
+ * https://w3c.github.io/IntersectionObserver/#intersection-observer-entry
+ * @param {Object} entry A dictionary of instance properties.
+ * @constructor
+ */
+function IntersectionObserverEntry(entry) {
+  this.time = entry.time;
+  this.target = entry.target;
+  this.rootBounds = entry.rootBounds;
+  this.boundingClientRect = entry.boundingClientRect;
+  this.intersectionRect = entry.intersectionRect || getEmptyRect();
+  this.isIntersecting = !!entry.intersectionRect;
+
+  // Calculates the intersection ratio.
+  var targetRect = this.boundingClientRect;
+  var targetArea = targetRect.width * targetRect.height;
+  var intersectionRect = this.intersectionRect;
+  var intersectionArea = intersectionRect.width * intersectionRect.height;
+
+  // Sets intersection ratio.
+  if (targetArea) {
+    // Round the intersection ratio to avoid floating point math issues:
+    // https://github.com/w3c/IntersectionObserver/issues/324
+    this.intersectionRatio = Number((intersectionArea / targetArea).toFixed(4));
+  } else {
+    // If area is zero and is intersecting, sets to 1, otherwise to 0
+    this.intersectionRatio = this.isIntersecting ? 1 : 0;
+  }
+}
+
+
+/**
+ * Creates the global IntersectionObserver constructor.
+ * https://w3c.github.io/IntersectionObserver/#intersection-observer-interface
+ * @param {Function} callback The function to be invoked after intersection
+ *     changes have queued. The function is not invoked if the queue has
+ *     been emptied by calling the `takeRecords` method.
+ * @param {Object=} opt_options Optional configuration options.
+ * @constructor
+ */
+function IntersectionObserver(callback, opt_options) {
+
+  var options = opt_options || {};
+
+  if (typeof callback != 'function') {
+    throw new Error('callback must be a function');
+  }
+
+  if (options.root && options.root.nodeType != 1) {
+    throw new Error('root must be an Element');
+  }
+
+  // Binds and throttles `this._checkForIntersections`.
+  this._checkForIntersections = throttle(
+      this._checkForIntersections.bind(this), this.THROTTLE_TIMEOUT);
+
+  // Private properties.
+  this._callback = callback;
+  this._observationTargets = [];
+  this._queuedEntries = [];
+  this._rootMarginValues = this._parseRootMargin(options.rootMargin);
+
+  // Public properties.
+  this.thresholds = this._initThresholds(options.threshold);
+  this.root = options.root || null;
+  this.rootMargin = this._rootMarginValues.map(function(margin) {
+    return margin.value + margin.unit;
+  }).join(' ');
+}
+
+
+/**
+ * The minimum interval within which the document will be checked for
+ * intersection changes.
+ */
+IntersectionObserver.prototype.THROTTLE_TIMEOUT = 100;
+
+
+/**
+ * The frequency in which the polyfill polls for intersection changes.
+ * this can be updated on a per instance basis and must be set prior to
+ * calling `observe` on the first target.
+ */
+IntersectionObserver.prototype.POLL_INTERVAL = null;
+
+/**
+ * Use a mutation observer on the root element
+ * to detect intersection changes.
+ */
+IntersectionObserver.prototype.USE_MUTATION_OBSERVER = true;
+
+
+/**
+ * Starts observing a target element for intersection changes based on
+ * the thresholds values.
+ * @param {Element} target The DOM element to observe.
+ */
+IntersectionObserver.prototype.observe = function(target) {
+  var isTargetAlreadyObserved = this._observationTargets.some(function(item) {
+    return item.element == target;
+  });
+
+  if (isTargetAlreadyObserved) {
+    return;
+  }
+
+  if (!(target && target.nodeType == 1)) {
+    throw new Error('target must be an Element');
+  }
+
+  this._registerInstance();
+  this._observationTargets.push({element: target, entry: null});
+  this._monitorIntersections();
+  this._checkForIntersections();
+};
+
+
+/**
+ * Stops observing a target element for intersection changes.
+ * @param {Element} target The DOM element to observe.
+ */
+IntersectionObserver.prototype.unobserve = function(target) {
+  this._observationTargets =
+      this._observationTargets.filter(function(item) {
+
+    return item.element != target;
+  });
+  if (!this._observationTargets.length) {
+    this._unmonitorIntersections();
+    this._unregisterInstance();
+  }
+};
+
+
+/**
+ * Stops observing all target elements for intersection changes.
+ */
+IntersectionObserver.prototype.disconnect = function() {
+  this._observationTargets = [];
+  this._unmonitorIntersections();
+  this._unregisterInstance();
+};
+
+
+/**
+ * Returns any queue entries that have not yet been reported to the
+ * callback and clears the queue. This can be used in conjunction with the
+ * callback to obtain the absolute most up-to-date intersection information.
+ * @return {Array} The currently queued entries.
+ */
+IntersectionObserver.prototype.takeRecords = function() {
+  var records = this._queuedEntries.slice();
+  this._queuedEntries = [];
+  return records;
+};
+
+
+/**
+ * Accepts the threshold value from the user configuration object and
+ * returns a sorted array of unique threshold values. If a value is not
+ * between 0 and 1 and error is thrown.
+ * @private
+ * @param {Array|number=} opt_threshold An optional threshold value or
+ *     a list of threshold values, defaulting to [0].
+ * @return {Array} A sorted list of unique and valid threshold values.
+ */
+IntersectionObserver.prototype._initThresholds = function(opt_threshold) {
+  var threshold = opt_threshold || [0];
+  if (!Array.isArray(threshold)) threshold = [threshold];
+
+  return threshold.sort().filter(function(t, i, a) {
+    if (typeof t != 'number' || isNaN(t) || t < 0 || t > 1) {
+      throw new Error('threshold must be a number between 0 and 1 inclusively');
+    }
+    return t !== a[i - 1];
+  });
+};
+
+
+/**
+ * Accepts the rootMargin value from the user configuration object
+ * and returns an array of the four margin values as an object containing
+ * the value and unit properties. If any of the values are not properly
+ * formatted or use a unit other than px or %, and error is thrown.
+ * @private
+ * @param {string=} opt_rootMargin An optional rootMargin value,
+ *     defaulting to '0px'.
+ * @return {Array<Object>} An array of margin objects with the keys
+ *     value and unit.
+ */
+IntersectionObserver.prototype._parseRootMargin = function(opt_rootMargin) {
+  var marginString = opt_rootMargin || '0px';
+  var margins = marginString.split(/\s+/).map(function(margin) {
+    var parts = /^(-?\d*\.?\d+)(px|%)$/.exec(margin);
+    if (!parts) {
+      throw new Error('rootMargin must be specified in pixels or percent');
+    }
+    return {value: parseFloat(parts[1]), unit: parts[2]};
+  });
+
+  // Handles shorthand.
+  margins[1] = margins[1] || margins[0];
+  margins[2] = margins[2] || margins[0];
+  margins[3] = margins[3] || margins[1];
+
+  return margins;
+};
+
+
+/**
+ * Starts polling for intersection changes if the polling is not already
+ * happening, and if the page's visibility state is visible.
+ * @private
+ */
+IntersectionObserver.prototype._monitorIntersections = function() {
+  if (!this._monitoringIntersections) {
+    this._monitoringIntersections = true;
+
+    // If a poll interval is set, use polling instead of listening to
+    // resize and scroll events or DOM mutations.
+    if (this.POLL_INTERVAL) {
+      this._monitoringInterval = setInterval(
+          this._checkForIntersections, this.POLL_INTERVAL);
+    }
+    else {
+      addEvent(window, 'resize', this._checkForIntersections, true);
+      addEvent(document, 'scroll', this._checkForIntersections, true);
+
+      if (this.USE_MUTATION_OBSERVER && 'MutationObserver' in window) {
+        this._domObserver = new MutationObserver(this._checkForIntersections);
+        this._domObserver.observe(document, {
+          attributes: true,
+          childList: true,
+          characterData: true,
+          subtree: true
+        });
+      }
+    }
+  }
+};
+
+
+/**
+ * Stops polling for intersection changes.
+ * @private
+ */
+IntersectionObserver.prototype._unmonitorIntersections = function() {
+  if (this._monitoringIntersections) {
+    this._monitoringIntersections = false;
+
+    clearInterval(this._monitoringInterval);
+    this._monitoringInterval = null;
+
+    removeEvent(window, 'resize', this._checkForIntersections, true);
+    removeEvent(document, 'scroll', this._checkForIntersections, true);
+
+    if (this._domObserver) {
+      this._domObserver.disconnect();
+      this._domObserver = null;
+    }
+  }
+};
+
+
+/**
+ * Scans each observation target for intersection changes and adds them
+ * to the internal entries queue. If new entries are found, it
+ * schedules the callback to be invoked.
+ * @private
+ */
+IntersectionObserver.prototype._checkForIntersections = function() {
+  var rootIsInDom = this._rootIsInDom();
+  var rootRect = rootIsInDom ? this._getRootRect() : getEmptyRect();
+
+  this._observationTargets.forEach(function(item) {
+    var target = item.element;
+    var targetRect = getBoundingClientRect(target);
+    var rootContainsTarget = this._rootContainsTarget(target);
+    var oldEntry = item.entry;
+    var intersectionRect = rootIsInDom && rootContainsTarget &&
+        this._computeTargetAndRootIntersection(target, rootRect);
+
+    var newEntry = item.entry = new IntersectionObserverEntry({
+      time: now(),
+      target: target,
+      boundingClientRect: targetRect,
+      rootBounds: rootRect,
+      intersectionRect: intersectionRect
+    });
+
+    if (!oldEntry) {
+      this._queuedEntries.push(newEntry);
+    } else if (rootIsInDom && rootContainsTarget) {
+      // If the new entry intersection ratio has crossed any of the
+      // thresholds, add a new entry.
+      if (this._hasCrossedThreshold(oldEntry, newEntry)) {
+        this._queuedEntries.push(newEntry);
+      }
+    } else {
+      // If the root is not in the DOM or target is not contained within
+      // root but the previous entry for this target had an intersection,
+      // add a new record indicating removal.
+      if (oldEntry && oldEntry.isIntersecting) {
+        this._queuedEntries.push(newEntry);
+      }
+    }
+  }, this);
+
+  if (this._queuedEntries.length) {
+    this._callback(this.takeRecords(), this);
+  }
+};
+
+
+/**
+ * Accepts a target and root rect computes the intersection between then
+ * following the algorithm in the spec.
+ * TODO(philipwalton): at this time clip-path is not considered.
+ * https://w3c.github.io/IntersectionObserver/#calculate-intersection-rect-algo
+ * @param {Element} target The target DOM element
+ * @param {Object} rootRect The bounding rect of the root after being
+ *     expanded by the rootMargin value.
+ * @return {?Object} The final intersection rect object or undefined if no
+ *     intersection is found.
+ * @private
+ */
+IntersectionObserver.prototype._computeTargetAndRootIntersection =
+    function(target, rootRect) {
+
+  // If the element isn't displayed, an intersection can't happen.
+  if (window.getComputedStyle(target).display == 'none') return;
+
+  var targetRect = getBoundingClientRect(target);
+  var intersectionRect = targetRect;
+  var parent = getParentNode(target);
+  var atRoot = false;
+
+  while (!atRoot) {
+    var parentRect = null;
+    var parentComputedStyle = parent.nodeType == 1 ?
+        window.getComputedStyle(parent) : {};
+
+    // If the parent isn't displayed, an intersection can't happen.
+    if (parentComputedStyle.display == 'none') return;
+
+    if (parent == this.root || parent == document) {
+      atRoot = true;
+      parentRect = rootRect;
+    } else {
+      // If the element has a non-visible overflow, and it's not the <body>
+      // or <html> element, update the intersection rect.
+      // Note: <body> and <html> cannot be clipped to a rect that's not also
+      // the document rect, so no need to compute a new intersection.
+      if (parent != document.body &&
+          parent != document.documentElement &&
+          parentComputedStyle.overflow != 'visible') {
+        parentRect = getBoundingClientRect(parent);
+      }
+    }
+
+    // If either of the above conditionals set a new parentRect,
+    // calculate new intersection data.
+    if (parentRect) {
+      intersectionRect = computeRectIntersection(parentRect, intersectionRect);
+
+      if (!intersectionRect) break;
+    }
+    parent = getParentNode(parent);
+  }
+  return intersectionRect;
+};
+
+
+/**
+ * Returns the root rect after being expanded by the rootMargin value.
+ * @return {Object} The expanded root rect.
+ * @private
+ */
+IntersectionObserver.prototype._getRootRect = function() {
+  var rootRect;
+  if (this.root) {
+    rootRect = getBoundingClientRect(this.root);
+  } else {
+    // Use <html>/<body> instead of window since scroll bars affect size.
+    var html = document.documentElement;
+    var body = document.body;
+    rootRect = {
+      top: 0,
+      left: 0,
+      right: html.clientWidth || body.clientWidth,
+      width: html.clientWidth || body.clientWidth,
+      bottom: html.clientHeight || body.clientHeight,
+      height: html.clientHeight || body.clientHeight
+    };
+  }
+  return this._expandRectByRootMargin(rootRect);
+};
+
+
+/**
+ * Accepts a rect and expands it by the rootMargin value.
+ * @param {Object} rect The rect object to expand.
+ * @return {Object} The expanded rect.
+ * @private
+ */
+IntersectionObserver.prototype._expandRectByRootMargin = function(rect) {
+  var margins = this._rootMarginValues.map(function(margin, i) {
+    return margin.unit == 'px' ? margin.value :
+        margin.value * (i % 2 ? rect.width : rect.height) / 100;
+  });
+  var newRect = {
+    top: rect.top - margins[0],
+    right: rect.right + margins[1],
+    bottom: rect.bottom + margins[2],
+    left: rect.left - margins[3]
+  };
+  newRect.width = newRect.right - newRect.left;
+  newRect.height = newRect.bottom - newRect.top;
+
+  return newRect;
+};
+
+
+/**
+ * Accepts an old and new entry and returns true if at least one of the
+ * threshold values has been crossed.
+ * @param {?IntersectionObserverEntry} oldEntry The previous entry for a
+ *    particular target element or null if no previous entry exists.
+ * @param {IntersectionObserverEntry} newEntry The current entry for a
+ *    particular target element.
+ * @return {boolean} Returns true if a any threshold has been crossed.
+ * @private
+ */
+IntersectionObserver.prototype._hasCrossedThreshold =
+    function(oldEntry, newEntry) {
+
+  // To make comparing easier, an entry that has a ratio of 0
+  // but does not actually intersect is given a value of -1
+  var oldRatio = oldEntry && oldEntry.isIntersecting ?
+      oldEntry.intersectionRatio || 0 : -1;
+  var newRatio = newEntry.isIntersecting ?
+      newEntry.intersectionRatio || 0 : -1;
+
+  // Ignore unchanged ratios
+  if (oldRatio === newRatio) return;
+
+  for (var i = 0; i < this.thresholds.length; i++) {
+    var threshold = this.thresholds[i];
+
+    // Return true if an entry matches a threshold or if the new ratio
+    // and the old ratio are on the opposite sides of a threshold.
+    if (threshold == oldRatio || threshold == newRatio ||
+        threshold < oldRatio !== threshold < newRatio) {
+      return true;
+    }
+  }
+};
+
+
+/**
+ * Returns whether or not the root element is an element and is in the DOM.
+ * @return {boolean} True if the root element is an element and is in the DOM.
+ * @private
+ */
+IntersectionObserver.prototype._rootIsInDom = function() {
+  return !this.root || containsDeep(document, this.root);
+};
+
+
+/**
+ * Returns whether or not the target element is a child of root.
+ * @param {Element} target The target element to check.
+ * @return {boolean} True if the target element is a child of root.
+ * @private
+ */
+IntersectionObserver.prototype._rootContainsTarget = function(target) {
+  return containsDeep(this.root || document, target);
+};
+
+
+/**
+ * Adds the instance to the global IntersectionObserver registry if it isn't
+ * already present.
+ * @private
+ */
+IntersectionObserver.prototype._registerInstance = function() {
+  if (registry.indexOf(this) < 0) {
+    registry.push(this);
+  }
+};
+
+
+/**
+ * Removes the instance from the global IntersectionObserver registry.
+ * @private
+ */
+IntersectionObserver.prototype._unregisterInstance = function() {
+  var index = registry.indexOf(this);
+  if (index != -1) registry.splice(index, 1);
+};
+
+
+/**
+ * Returns the result of the performance.now() method or null in browsers
+ * that don't support the API.
+ * @return {number} The elapsed time since the page was requested.
+ */
+function now() {
+  return window.performance && performance.now && performance.now();
+}
+
+
+/**
+ * Throttles a function and delays its execution, so it's only called at most
+ * once within a given time period.
+ * @param {Function} fn The function to throttle.
+ * @param {number} timeout The amount of time that must pass before the
+ *     function can be called again.
+ * @return {Function} The throttled function.
+ */
+function throttle(fn, timeout) {
+  var timer = null;
+  return function () {
+    if (!timer) {
+      timer = setTimeout(function() {
+        fn();
+        timer = null;
+      }, timeout);
+    }
+  };
+}
+
+
+/**
+ * Adds an event handler to a DOM node ensuring cross-browser compatibility.
+ * @param {Node} node The DOM node to add the event handler to.
+ * @param {string} event The event name.
+ * @param {Function} fn The event handler to add.
+ * @param {boolean} opt_useCapture Optionally adds the even to the capture
+ *     phase. Note: this only works in modern browsers.
+ */
+function addEvent(node, event, fn, opt_useCapture) {
+  if (typeof node.addEventListener == 'function') {
+    node.addEventListener(event, fn, opt_useCapture || false);
+  }
+  else if (typeof node.attachEvent == 'function') {
+    node.attachEvent('on' + event, fn);
+  }
+}
+
+
+/**
+ * Removes a previously added event handler from a DOM node.
+ * @param {Node} node The DOM node to remove the event handler from.
+ * @param {string} event The event name.
+ * @param {Function} fn The event handler to remove.
+ * @param {boolean} opt_useCapture If the event handler was added with this
+ *     flag set to true, it should be set to true here in order to remove it.
+ */
+function removeEvent(node, event, fn, opt_useCapture) {
+  if (typeof node.removeEventListener == 'function') {
+    node.removeEventListener(event, fn, opt_useCapture || false);
+  }
+  else if (typeof node.detatchEvent == 'function') {
+    node.detatchEvent('on' + event, fn);
+  }
+}
+
+
+/**
+ * Returns the intersection between two rect objects.
+ * @param {Object} rect1 The first rect.
+ * @param {Object} rect2 The second rect.
+ * @return {?Object} The intersection rect or undefined if no intersection
+ *     is found.
+ */
+function computeRectIntersection(rect1, rect2) {
+  var top = Math.max(rect1.top, rect2.top);
+  var bottom = Math.min(rect1.bottom, rect2.bottom);
+  var left = Math.max(rect1.left, rect2.left);
+  var right = Math.min(rect1.right, rect2.right);
+  var width = right - left;
+  var height = bottom - top;
+
+  return (width >= 0 && height >= 0) && {
+    top: top,
+    bottom: bottom,
+    left: left,
+    right: right,
+    width: width,
+    height: height
+  };
+}
+
+
+/**
+ * Shims the native getBoundingClientRect for compatibility with older IE.
+ * @param {Element} el The element whose bounding rect to get.
+ * @return {Object} The (possibly shimmed) rect of the element.
+ */
+function getBoundingClientRect(el) {
+  var rect;
+
+  try {
+    rect = el.getBoundingClientRect();
+  } catch (err) {
+    // Ignore Windows 7 IE11 "Unspecified error"
+    // https://github.com/w3c/IntersectionObserver/pull/205
+  }
+
+  if (!rect) return getEmptyRect();
+
+  // Older IE
+  if (!(rect.width && rect.height)) {
+    rect = {
+      top: rect.top,
+      right: rect.right,
+      bottom: rect.bottom,
+      left: rect.left,
+      width: rect.right - rect.left,
+      height: rect.bottom - rect.top
+    };
+  }
+  return rect;
+}
+
+
+/**
+ * Returns an empty rect object. An empty rect is returned when an element
+ * is not in the DOM.
+ * @return {Object} The empty rect.
+ */
+function getEmptyRect() {
+  return {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    width: 0,
+    height: 0
+  };
+}
+
+/**
+ * Checks to see if a parent element contains a child element (including inside
+ * shadow DOM).
+ * @param {Node} parent The parent element.
+ * @param {Node} child The child element.
+ * @return {boolean} True if the parent node contains the child node.
+ */
+function containsDeep(parent, child) {
+  var node = child;
+  while (node) {
+    if (node == parent) return true;
+
+    node = getParentNode(node);
+  }
+  return false;
+}
+
+
+/**
+ * Gets the parent node of an element or its host element if the parent node
+ * is a shadow root.
+ * @param {Node} node The node whose parent to get.
+ * @return {Node|null} The parent node or null if no parent exists.
+ */
+function getParentNode(node) {
+  var parent = node.parentNode;
+
+  if (parent && parent.nodeType == 11 && parent.host) {
+    // If the parent is a shadow root, return the host element.
+    return parent.host;
+  }
+  return parent;
+}
+
+
+// Exposes the constructors globally.
+window.IntersectionObserver = IntersectionObserver;
+window.IntersectionObserverEntry = IntersectionObserverEntry;
+
+}(window, document));
+
 
 /***/ }),
 
@@ -519,90 +1252,40 @@ component.options.__file = "SharingIconsRow.vue"
 
 /***/ }),
 
-/***/ "dc0a":
+/***/ "c79a":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserParticipant_vue_vue_type_style_index_0_id_0c9e0d60_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("2606");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserParticipant_vue_vue_type_style_index_0_id_0c9e0d60_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserParticipant_vue_vue_type_style_index_0_id_0c9e0d60_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserParticipant_vue_vue_type_style_index_0_id_0c9e0d60_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "d3d8":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/nonprofit/NonprofitAbout.vue?vue&type=template&id=a8bb5026&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"nonprofit-extended"},[_c('div',{staticClass:"container"},[_c('div',{staticClass:"nonprofit-extended__separator"}),(!_vm.nonprofit.data.about || _vm.editing)?_c('div',[_c('h2',{ref:"aboutHeading"},[_vm._v("About "),_c('span',{domProps:{"innerHTML":_vm._s(_vm.nonprofit.data.name || _vm.nonprofit.NAME)}})]),_c('NonprofitIRSData',{ref:"nonprofitIRSDataTable",attrs:{"nonprofit":_vm.nonprofit,"editing":_vm.editing,"can-edit":_vm.canEdit},on:{"edit:open":function($event){_vm.enableEdition()},"edit:close":function($event){_vm.closeEdition()},"edit:previous":function($event){_vm.openEdition('nonprofitEmail')},"edit:next":function($event){_vm.openEdition('nonprofitAbout')}}})],1):_vm._e(),(_vm.nonprofit.data.about || _vm.editing)?_c('div',[_c('h2',[_vm._v("About "),_c('span',{domProps:{"innerHTML":_vm._s(_vm.nonprofit.data.name || _vm.nonprofit.NAME)}})]),_c('div',{staticClass:"columns"},[_c('div',{staticClass:"nonprofit-extended__about column is-8-desktop"},[_c('div',{staticClass:"style-paragraph"},[_c('InlineFieldEditor',{ref:"nonprofitAbout",attrs:{"type":"textarea","allow-empty":false,"error-text":"This field can't be empty","value":_vm.nonprofit.data.about,"edition-is-enabled":_vm.editing,"placeholder":"Add a description.","location":"nonprofit.data.about"},on:{"next:field":function($event){_vm.openEdition('nonprofitCity')},"previous:field":function($event){_vm.openChildEdition('nonprofitName')}}})],1),_c('p',[_vm._v("501(c)(3) nonprofit. Donations are 100% deductible")]),(_vm.nonprofit.EIN)?_c('div',{staticClass:"helper-text"},[_vm._v("\n            EMPLOYER ID NUMBER (EIN): "+_vm._s(_vm.nonprofit.EIN)+"\n          ")]):_vm._e()]),_c('div',{staticClass:"nonprofit-extended__icons column is-4-desktop"},[(_vm.nonprofit.data)?_c('div',{staticClass:"nonprofit-extended__icon"},[_c('Icons',{staticClass:"icon",attrs:{"iconwidth":"24px","iconheight":"24px","icon":"location","color":"#f0f0f0"}}),_c('div',{staticClass:"display-block"},[_c('InlineFieldEditor',{ref:"nonprofitCity",attrs:{"type":"text","layout":"inline","allow-empty":false,"edition-is-enabled":_vm.editing,"error-text":"This field can't be empty","value":_vm.nonprofit.data.city,"placeholder":((_vm.nonprofit.CITY) + ", " + (_vm.nonprofit.STATE)),"location":"nonprofit.data.city"},on:{"next:field":function($event){_vm.openEdition('nonprofitWebsite')},"previous:field":function($event){_vm.openEdition('nonprofitAbout')}}})],1)],1):_vm._e(),(_vm.nonprofit.data)?_c('div',{staticClass:"nonprofit-extended__icon"},[(_vm.nonprofit.data.website || _vm.editing)?_c('Icons',{staticClass:"icon",attrs:{"iconwidth":"24px","iconheight":"24px","icon":"link","color":"#f0f0f0"}}):_vm._e(),_c('div',{staticClass:"display-block"},[(_vm.nonprofit.data.website || _vm.editing)?_c('InlineFieldEditor',{ref:"nonprofitWebsite",attrs:{"type":"url","layout":"inline","allow-empty":true,"edition-is-enabled":_vm.editing,"error-text":"Please enter a valid URL: https://example.org","value":_vm.nonprofit.data.website,"placeholder":"Add a website","location":"nonprofit.data.website"},on:{"next:field":function($event){_vm.openEdition('nonprofitEmail')},"previous:field":function($event){_vm.openEdition('nonprofitCity')}}}):_vm._e()],1)],1):_vm._e(),(_vm.nonprofit.data)?_c('div',{staticClass:"nonprofit-extended__icon"},[(_vm.nonprofit.data.email || _vm.editing)?_c('Icons',{staticClass:"icon",attrs:{"iconwidth":"24px","iconheight":"24px","icon":"email","color":"#f0f0f0"}}):_vm._e(),_c('div',{staticClass:"display-block"},[(_vm.nonprofit.data.email || _vm.editing)?_c('InlineFieldEditor',{ref:"nonprofitEmail",attrs:{"type":"email","layout":"inline","allow-empty":false,"error-text":"Please enter a valid email address","placeholder":"Add a contact email","edition-is-enabled":_vm.editing,"value":_vm.nonprofit.data.email,"location":"nonprofit.data.email"},on:{"previous:field":function($event){_vm.openEdition('nonprofitWebsite')}}}):_vm._e()],1)],1):_vm._e(),(!_vm.editing)?_c('DonateAction',{attrs:{"nonprofit-ein":_vm.nonprofit.EIN,"trigger":"nonprofit/about/data"}},[_c('button',{staticClass:"button is-success nonprofit-extended__donate",attrs:{"type":"submit"}},[_vm._v("\n              Donate\n            ")])]):_vm._e()],1)])]):_vm._e(),_c('div',{staticClass:"columns"},[_c('div',{staticClass:"nonprofit-extended__media column is-12-desktop"},[_c('div',{staticClass:"nonprofit-extended__icon"},[(_vm.nonprofit.data.media && _vm.nonprofit.data.media.length || _vm.editing)?_c('Icons',{staticClass:"icon",attrs:{"iconwidth":"24px","iconheight":"24px","icon":"camera","color":"#f0f0f0"}}):_vm._e(),(_vm.editing && _vm.nonprofit.data.media)?_c('p',[_c('span',[_vm._v(_vm._s(_vm.nonprofit.data.media.length)+" Photos and videos")])]):_vm._e(),(!_vm.editing && _vm.nonprofit.data.media && _vm.nonprofit.data.media.length)?_c('MediaViewer',{ref:"mediaViewer",attrs:{"media":_vm.nonprofit.data.media},on:{"modal:open":function($event){_vm.stopFlickity()},"modal:close":function($event){_vm.startFlickity()}}},[_c('div',{attrs:{"slot":"trigger"},slot:"trigger"},[(_vm.nonprofit.data.media)?_c('a',[_vm._v(_vm._s(_vm.nonprofit.data.media.length)+" Photos and videos")]):_vm._e()])]):_vm._e()],1),(_vm.editing)?_c('MediaEditor',{attrs:{"media-source":_vm.nonprofit.data,"location":"nonprofit.data.media"}}):_vm._e(),(_vm.nonprofit.data.media && !_vm.editing)?_c('flickity',{ref:"carousel",staticClass:"nonprofit-extended__media-wrapper",class:{'short-wrapper': _vm.nonprofit.data.media.length < 3},attrs:{"options":_vm.nonprofitMediaCarouselOptions}},_vm._l((_vm.nonprofit.data.media),function(item,index){return _c('div',{on:{"click":function($event){}}},[(item.type === 'image')?_c('LazyLoadedImage',{key:item.src,staticClass:"nonprofit-extended__media-item",attrs:{"is-background":true,"src":item.src}}):_vm._e(),(item.type === 'video')?_c('LazyLoadedImage',{key:item.src,staticClass:"nonprofit-extended__media-item ",attrs:{"is-background":true,"src":("https://img.youtube.com/vi/" + (item.src) + "/mqdefault.jpg")}}):_vm._e()],1)})):_vm._e()],1)]),_c('SharingIconsRow',{key:_vm.$route.fullPath,attrs:{"nonprofit-ein":_vm.nonprofit.EIN,"route-path":_vm.$route.fullPath,"trigger":"nonprofit/about/shareIconsRow"}})],1)])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/fundraiser/FundraiserParticipant.vue?vue&type=template&id=0c9e0d60&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.fundraiser.participant)?_c('div',{staticClass:"container is-fluid white-bg fundraiser-participant__wrapper"},[_c('div',{staticClass:"fundraiser-body"},[(_vm.canEdit)?_c('p',{},[(_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.closeEditor()}}},[_vm._v("Stop editing")]):_vm._e(),(!_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.openEditor()}}},[_vm._v("Edit this section")]):_vm._e()]):_vm._e(),(_vm.editing)?_c('h2',[_vm._v("Edit the fundraiser info")]):_vm._e(),_c('div',{staticClass:"fundraiser-participant",class:{'columns is-editing': _vm.editing}},[_c('figure',{staticClass:"fundraiser-participant__avatar",class:{'is-editing column is-6': _vm.editing}},[_c('InlineImageEditor',{ref:"imageEditor",staticClass:"fundraiser-participant__img",attrs:{"location":"fundraiser.participant.avatar","item":_vm.fundraiser.participant.avatar,"alt":_vm.fundraiser.participant.name,"is-background-image":true,"open-default":false,"edition-is-enabled":_vm.editing,"disable-orientation":true,"default-text":"Add your avatar","type":"avatar"},on:{"edition:open":function($event){_vm.newImageOpenId = $event},"edition:close":function($event){_vm.newImageOpenId = null},"image:remove":function($event){_vm.removeNewImage()}}})],1),_c('div',{staticClass:"fundraiser-participant__details",class:{'column is-5': _vm.editing}},[_c('h3',{staticClass:"fundraiser-participant__name"},[_vm._v("by\n          "),_c('div',{staticClass:"emphasis"},[_c('InlineFieldEditor',{ref:"fundraiserParticipant",attrs:{"type":"text","remove-returns":true,"allow-empty":false,"error-text":"This field can't be empty","value":_vm.fundraiser.participant.fullname,"edition-is-enabled":_vm.editing,"placeholder":"Add the name of the fundraiser","location":"fundraiser.participant.fullname"},on:{"next:field":function($event){_vm.openEdition('fundraiserCity')},"previous:field":function($event){_vm.openEdition('fundraiserDescription')}}})],1)]),_c('div',{staticClass:"fundraiser-participant__detail-item-wrapper",class:{'is-editing': _vm.editing}},[_c('div',{staticClass:"fundraiser-participant__detail-item"},[_c('Icons',{staticClass:"fundraiser-participant__icon icon-location",attrs:{"iconwidth":"24px","iconheight":"24px","icon":"location","color":"#f0f0f0"}}),_c('div',{staticClass:"fundraiser-participant__location"},[_c('InlineFieldEditor',{ref:"fundraiserCity",attrs:{"type":"text","remove-returns":true,"allow-empty":false,"error-text":"This field can't be empty","value":_vm.fundraiser.participant.location,"edition-is-enabled":_vm.editing,"layout":"inline","placeholder":"Add the name of the fundraiser","location":"fundraiser.participant.location"},on:{"next:field":function($event){_vm.openEdition('fundraiserEmail')},"previous:field":function($event){_vm.openEdition('fundraiserParticipant')}}})],1)],1),_c('div',{staticClass:"fundraiser-participant__detail-item"},[_c('Icons',{staticClass:"fundraiser-participant__icon",attrs:{"iconwidth":"24px","iconheight":"24px","icon":"email","color":"#f0f0f0"}}),_c('div',{staticClass:"fundraiser-participant__contact"},[(_vm.editing)?_c('InlineFieldEditor',{ref:"fundraiserEmail",attrs:{"type":"email","remove-returns":true,"allow-empty":false,"error-text":"Please add your email address for notifications","value":_vm.fundraiser.participant.email,"edition-is-enabled":_vm.editing,"layout":"inline","placeholder":"Email address","location":"fundraiser.participant.email"},on:{"next:field":function($event){_vm.openEdition('fundraiserDescription')},"previous:field":function($event){_vm.openEdition('fundraiserCity')}}}):_vm._e(),(!_vm.editing && _vm.fundraiser.participant.email)?_c('a',{attrs:{"href":("mailto:" + (_vm.fundraiser.participant.email))}},[_vm._v("Contact")]):_vm._e()],1)],1),(!_vm.editing)?_c('div',{staticClass:"fundraiser-participant__subscribe"},[_c('div',{staticClass:"button is-warning"},[_vm._v("+Subscribe to receive updates")])]):_vm._e()])])]),_c('div',{staticClass:"fundraiser-participant__description",class:{'is-editing': _vm.editing}},[_c('p',[_c('InlineFieldEditor',{ref:"fundraiserDescription",attrs:{"type":"textarea","remove-returns":false,"allow-empty":false,"error-text":"Add a compelling intro for your fundraiser.","value":_vm.fundraiser.description,"edition-is-enabled":_vm.editing,"layout":"block","placeholder":"Email address","location":"fundraiser.description"},on:{"next:field":function($event){_vm.openEdition('fundraiserParticipant')},"previous:field":function($event){_vm.openEdition('fundraiserEmail')}}})],1),_c('SharingIconsRow',{key:_vm.$route.fullPath,attrs:{"route-path":_vm.$route.fullPath,"fundraiser-id":_vm.fundraiser.fundraiser_id,"trigger":"fundraiser/participant/shareIconsRow"}})],1)])]):_vm._e()}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/nonprofit/NonprofitAbout.vue?vue&type=template&id=a8bb5026&scoped=true&
-
-// EXTERNAL MODULE: ./src/components/general/DonateAction.vue + 4 modules
-var DonateAction = __webpack_require__("eaf4");
-
-// EXTERNAL MODULE: ./src/components/general/SharingIconsRow.vue + 4 modules
-var SharingIconsRow = __webpack_require__("91a9");
+// CONCATENATED MODULE: ./src/components/fundraiser/FundraiserParticipant.vue?vue&type=template&id=0c9e0d60&scoped=true&
 
 // EXTERNAL MODULE: ./src/components/general/Icons.vue + 4 modules
 var Icons = __webpack_require__("4706");
 
-// EXTERNAL MODULE: ./src/components/plugins/Flickity.vue + 4 modules
-var Flickity = __webpack_require__("fbe1");
+// EXTERNAL MODULE: ./src/components/general/SharingIconsRow.vue + 4 modules
+var SharingIconsRow = __webpack_require__("91a9");
 
 // EXTERNAL MODULE: ./src/components/plugins/LazyLoadedImage.js
 var LazyLoadedImage = __webpack_require__("623f");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/nonprofit/NonprofitAbout.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/fundraiser/FundraiserParticipant.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -728,85 +1411,40 @@ var LazyLoadedImage = __webpack_require__("623f");
 
 
 
-
-
-/* harmony default export */ var NonprofitAboutvue_type_script_lang_js_ = ({
-  props: ['nonprofit', 'editing', 'canEdit'],
+/* harmony default export */ var FundraiserParticipantvue_type_script_lang_js_ = ({
+  props: ['fundraiser', 'editing', 'canEdit'],
   components: {
-    DonateAction: DonateAction["default"],
     Icons: Icons["default"],
-    Flickity: Flickity["a" /* default */],
-    SharingIconsRow: SharingIconsRow["a" /* default */],
     LazyLoadedImage: LazyLoadedImage["default"],
-    MediaEditor: function MediaEditor() {
-      return __webpack_require__.e(/* import() */ 19).then(__webpack_require__.bind(null, "f5df"));
-    },
-    NonprofitIRSData: function NonprofitIRSData() {
-      return __webpack_require__.e(/* import() */ 65).then(__webpack_require__.bind(null, "424e"));
-    },
-    MediaViewer: function MediaViewer() {
-      return __webpack_require__.e(/* import() */ 60).then(__webpack_require__.bind(null, "3f98"));
-    },
+    SharingIconsRow: SharingIconsRow["a" /* default */],
     InlineFieldEditor: function InlineFieldEditor() {
-      return __webpack_require__.e(/* import() */ 9).then(__webpack_require__.bind(null, "b3b0"));
+      return __webpack_require__.e(/* import() */ 16).then(__webpack_require__.bind(null, "b3b0"));
+    },
+    InlineImageEditor: function InlineImageEditor() {
+      return __webpack_require__.e(/* import() */ 12).then(__webpack_require__.bind(null, "145d"));
     }
-  },
-  data: function data() {
-    return {
-      nonprofitMediaCarouselOptions: {
-        initialIndex: 0,
-        prevNextButtons: false,
-        pageDots: false,
-        wrapAround: true,
-        autoPlay: true
-      }
-    };
   },
   methods: {
-    stopFlickity: function stopFlickity() {
-      this.$refs.carousel.pausePlayer();
-    },
-    startFlickity: function startFlickity() {
-      this.$refs.carousel.unpausePlayer();
-    },
-    enableEdition: function enableEdition() {
-      this.$emit('edit:open');
-    },
-    openEdition: function openEdition(fieldName) {
-      this.$refs[fieldName].openEdition();
-    },
-    closeEdition: function closeEdition(fieldName) {
+    closeEditor: function closeEditor() {
       this.$emit('edit:close');
     },
-    openChildEdition: function openChildEdition(fieldName) {
-      this.$refs.nonprofitIRSDataTable.openEdition(fieldName);
+    openEditor: function openEditor() {
+      this.$emit('edit:open');
     },
-    triggerMediaViewer: function triggerMediaViewer(cell) {
-      this.$refs.mediaViewer.openModal();
-      this.$refs.mediaViewer.$refs.flickity.select(cell);
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    var carousel = this.$refs.carousel;
-
-    if (carousel) {
-      carousel.on('staticClick', function (event, pointer, cellElement, cellIndex) {
-        _this.triggerMediaViewer(cellIndex);
-      });
+    openEdition: function openEdition(ref) {
+      this.$refs[ref].openEdition();
     }
   }
 });
-// CONCATENATED MODULE: ./src/components/nonprofit/NonprofitAbout.vue?vue&type=script&lang=js&
- /* harmony default export */ var nonprofit_NonprofitAboutvue_type_script_lang_js_ = (NonprofitAboutvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/nonprofit/NonprofitAbout.vue?vue&type=style&index=0&id=a8bb5026&scoped=true&lang=scss&
-var NonprofitAboutvue_type_style_index_0_id_a8bb5026_scoped_true_lang_scss_ = __webpack_require__("f9c2");
+// CONCATENATED MODULE: ./src/components/fundraiser/FundraiserParticipant.vue?vue&type=script&lang=js&
+ /* harmony default export */ var fundraiser_FundraiserParticipantvue_type_script_lang_js_ = (FundraiserParticipantvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./src/components/fundraiser/FundraiserParticipant.vue?vue&type=style&index=0&id=0c9e0d60&scoped=true&lang=scss&
+var FundraiserParticipantvue_type_style_index_0_id_0c9e0d60_scoped_true_lang_scss_ = __webpack_require__("c79a");
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
-// CONCATENATED MODULE: ./src/components/nonprofit/NonprofitAbout.vue
+// CONCATENATED MODULE: ./src/components/fundraiser/FundraiserParticipant.vue
 
 
 
@@ -816,18 +1454,18 @@ var componentNormalizer = __webpack_require__("2877");
 /* normalize component */
 
 var component = Object(componentNormalizer["a" /* default */])(
-  nonprofit_NonprofitAboutvue_type_script_lang_js_,
+  fundraiser_FundraiserParticipantvue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
   null,
-  "a8bb5026",
+  "0c9e0d60",
   null
   
 )
 
-component.options.__file = "NonprofitAbout.vue"
-/* harmony default export */ var NonprofitAbout = __webpack_exports__["default"] = (component.exports);
+component.options.__file = "FundraiserParticipant.vue"
+/* harmony default export */ var FundraiserParticipant = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -923,382 +1561,6 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 component.options.__file = "DonateAction.vue"
 /* harmony default export */ var DonateAction = __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "f9c2":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NonprofitAbout_vue_vue_type_style_index_0_id_a8bb5026_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("3cdb");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NonprofitAbout_vue_vue_type_style_index_0_id_a8bb5026_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NonprofitAbout_vue_vue_type_style_index_0_id_a8bb5026_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NonprofitAbout_vue_vue_type_style_index_0_id_a8bb5026_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "fbe1":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/plugins/Flickity.vue?vue&type=template&id=3091e956&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)}
-var staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/components/plugins/Flickity.vue?vue&type=template&id=3091e956&
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/plugins/Flickity.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-
-/**
- * This is a fork of the original vueflickity component.
- * Modified to work with SSR: https://github.com/drewjbartlett/vue-flickity
- */
-var Flickity = {};
-/* harmony default export */ var Flickityvue_type_script_lang_js_ = ({
-  props: {
-    options: Object
-  },
-  mounted: function mounted() {
-    Flickity = __webpack_require__("217b");
-    this.init();
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.$flickity.destroy();
-    this.$flickity = null;
-  },
-  methods: {
-    /**
-     * Initialize a new flickity and emit init event.
-     */
-    init: function init() {
-      this.$flickity = new Flickity(this.$el, this.options);
-      this.$emit('init', this.$flickity);
-    },
-
-    /**
-     * Return the current flickity instance to access directly
-     *
-     * @return {Flickity}
-     */
-    flickity: function flickity() {
-      return this.$flickity;
-    },
-
-    /**
-     * Selecting Slides
-     */
-
-    /**
-     * Select a slide
-     *
-     * @param {number} index
-     * @param {boolean} isWrapped
-     * @param {boolean} isInstant
-     */
-    select: function select(index, isWrapped, isInstant) {
-      this.$flickity.select(index, isWrapped, isInstant);
-    },
-
-    /**
-     * Change to the next slide
-     *
-     * @param {boolean} isWrapped
-     * @param {boolean} isInstant
-     */
-    next: function next(isWrapped, isInstant) {
-      this.$flickity.next(isWrapped, isInstant);
-    },
-
-    /**
-     * Change to the previous slide
-     *
-     * @param {boolean} isWrapped
-     * @param {boolean} isInstant
-     */
-    previous: function previous(isWrapped, isInstant) {
-      this.$flickity.previous(isWrapped, isInstant);
-    },
-
-    /**
-     * Select a cell
-     *
-     * @param {number} value
-     * @param {boolean} isWrapped
-     * @param {boolean} isInstant
-     */
-    selectCell: function selectCell(value, isWrapped, isInstant) {
-      this.$flickity.selectCell(value, isWrapped, isInstant);
-    },
-
-    /**
-     * Sizing and Positioning
-     */
-
-    /**
-     * Trigger a resize event
-     */
-    resize: function resize() {
-      this.$flickity.resize();
-    },
-
-    /**
-     * Trigger a reposition event
-     */
-    reposition: function reposition() {
-      this.$flickity.reposition();
-    },
-
-    /**
-     * Adding and removing cells
-     */
-
-    /**
-     * Prepend elements to flickity
-     *
-     * @param {array|HTMLElement|NodeList} elements
-     */
-    prepend: function prepend(elements) {
-      this.$flickity.prepend(elements);
-    },
-
-    /**
-     * Append elements to flickity
-     *
-     * @param {array|HTMLElement|NodeList} elements
-     */
-    append: function append(elements) {
-      this.$flickity.append(elements);
-    },
-
-    /**
-     * Insert elements at a given index
-     *
-     * @param {array|HTMLElement|NodeList} elements
-     * @param {number} index
-     */
-    insert: function insert(elements, index) {
-      this.$flickity.insert(elements, index);
-    },
-
-    /**
-     * Remove elements from flickity
-     *
-     * @param {array|HTMLElement|NodeList} elements
-     */
-    remove: function remove(elements) {
-      this.$flickity.remove(elements);
-    },
-
-    /**
-     * Player
-     */
-
-    /**
-     * Trigger a playPlayer event
-     */
-    playPlayer: function playPlayer() {
-      this.$flickity.playPlayer();
-    },
-
-    /**
-     * Trigger a stopPlayer event
-     */
-    stopPlayer: function stopPlayer() {
-      this.$flickity.stopPlayer();
-    },
-
-    /**
-     * Trigger a pausePlayer event
-     */
-    pausePlayer: function pausePlayer() {
-      this.$flickity.pausePlayer();
-    },
-
-    /**
-     * Trigger a unpausePlayer event
-     */
-    unpausePlayer: function unpausePlayer() {
-      this.$flickity.unpausePlayer();
-    },
-
-    /**
-     * Trigger a rerender event
-     */
-    rerender: function rerender() {
-      this.$flickity.destroy();
-      this.init();
-    },
-
-    /**
-     * Utilities
-     */
-
-    /**
-     * Destroy the flickity instance
-     */
-    destroy: function destroy() {
-      this.$flickity.destroy();
-    },
-
-    /**
-     * Trigger a rerender event
-     */
-    reloadCells: function reloadCells() {
-      this.$flickity.reloadCells();
-    },
-
-    /**
-     * Get the cell elements
-     *
-     * @return {array}
-     */
-    getCellElements: function getCellElements() {
-      return this.$flickity.getCellElements();
-    },
-
-    /**
-     * Return flickity data
-     *
-     * @return {Flickity}
-     */
-    data: function data() {
-      return Flickity.data(this.$el);
-    },
-
-    /**
-     * Events
-     */
-
-    /**
-     * Attach an event
-     *
-     * @param {string} eventName
-     * @param {function} listener
-     */
-    on: function on(eventName, listener) {
-      this.$flickity.on(eventName, listener);
-    },
-
-    /**
-     * Remove an event
-     *
-     * @param {string} eventName
-     * @param {function} listener
-     */
-    off: function off(eventName, listener) {
-      this.$flickity.off(eventName, listener);
-    },
-
-    /**
-     * Attach an event once
-     *
-     * @param {string} eventName
-     * @param {function} listener
-     */
-    once: function once(eventName, listener) {
-      this.$flickity.once(eventName, listener);
-    },
-
-    /**
-     * Properties
-     */
-
-    /**
-     * Return the selected element
-     *
-     * @return {HTMLElement}
-     */
-    selectedElement: function selectedElement() {
-      return this.$flickity.selectedElement;
-    },
-
-    /**
-     * Return the selected elements
-     *
-     * @return {array}
-     */
-    selectedElements: function selectedElements() {
-      return this.$flickity.selectedElements;
-    },
-
-    /**
-     * Return the selected index
-     *
-     * @return {number}
-     */
-    selectedIndex: function selectedIndex() {
-      return this.$flickity.selectedIndex;
-    },
-
-    /**
-     * Return the cells
-     *
-     * @return {array}
-     */
-    cells: function cells() {
-      return this.$flickity.cells;
-    },
-
-    /**
-     * Return the slides
-     *
-     * @return {array}
-     */
-    slides: function slides() {
-      return this.$flickity.slides;
-    },
-
-    /**
-     * Disable dragging of slider
-     */
-    disableDrag: function disableDrag() {
-      this.$flickity.options.draggable = false;
-      this.$flickity.updateDraggable();
-    },
-
-    /**
-     * Enable dragging of slider
-     */
-    enableDrag: function enableDrag() {
-      this.$flickity.options.draggable = true;
-      this.$flickity.updateDraggable();
-    }
-  }
-});
-// CONCATENATED MODULE: ./src/components/plugins/Flickity.vue?vue&type=script&lang=js&
- /* harmony default export */ var plugins_Flickityvue_type_script_lang_js_ = (Flickityvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__("2877");
-
-// CONCATENATED MODULE: ./src/components/plugins/Flickity.vue
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  plugins_Flickityvue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "Flickity.vue"
-/* harmony default export */ var plugins_Flickity = __webpack_exports__["a"] = (component.exports);
 
 /***/ })
 

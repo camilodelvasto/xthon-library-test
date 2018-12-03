@@ -1,4 +1,4 @@
-((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[31,57],{
+((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[31,54],{
 
 /***/ "2943":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -385,10 +385,10 @@ var Icons = __webpack_require__("4706");
     Icons: Icons["default"],
     ShareBox: ShareBox["a" /* default */],
     InlineFieldEditor: function InlineFieldEditor() {
-      return __webpack_require__.e(/* import() */ 9).then(__webpack_require__.bind(null, "b3b0"));
+      return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.bind(null, "b3b0"));
     },
     InlineImageEditor: function InlineImageEditor() {
-      return __webpack_require__.e(/* import() */ 48).then(__webpack_require__.bind(null, "145d"));
+      return __webpack_require__.e(/* import() */ 44).then(__webpack_require__.bind(null, "145d"));
     }
   },
   data: function data() {

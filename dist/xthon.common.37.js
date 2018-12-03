@@ -1,730 +1,298 @@
 ((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[37],{
 
-/***/ "2621":
-/***/ (function(module, exports) {
-
-exports.f = Object.getOwnPropertySymbols;
-
-
-/***/ }),
-
-/***/ "267e":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserLowerBody_vue_vue_type_style_index_0_id_3529afe2_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6102");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserLowerBody_vue_vue_type_style_index_0_id_3529afe2_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserLowerBody_vue_vue_type_style_index_0_id_3529afe2_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FundraiserLowerBody_vue_vue_type_style_index_0_id_3529afe2_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "2f21":
+/***/ "0bfb":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var fails = __webpack_require__("79e5");
-
-module.exports = function (method, arg) {
-  return !!method && fails(function () {
-    // eslint-disable-next-line no-useless-call
-    arg ? method.call(null, function () { /* empty */ }, 1) : method.call(null);
-  });
+// 21.2.5.3 get RegExp.prototype.flags
+var anObject = __webpack_require__("cb7c");
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
 };
 
 
 /***/ }),
 
-/***/ "52a7":
-/***/ (function(module, exports) {
-
-exports.f = {}.propertyIsEnumerable;
-
-
-/***/ }),
-
-/***/ "55dd":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var $export = __webpack_require__("5ca1");
-var aFunction = __webpack_require__("d8e8");
-var toObject = __webpack_require__("4bf8");
-var fails = __webpack_require__("79e5");
-var $sort = [].sort;
-var test = [1, 2, 3];
-
-$export($export.P + $export.F * (fails(function () {
-  // IE8-
-  test.sort(undefined);
-}) || !fails(function () {
-  // V8 bug
-  test.sort(null);
-  // Old WebKit
-}) || !__webpack_require__("2f21")($sort)), 'Array', {
-  // 22.1.3.25 Array.prototype.sort(comparefn)
-  sort: function sort(comparefn) {
-    return comparefn === undefined
-      ? $sort.call(toObject(this))
-      : $sort.call(toObject(this), aFunction(comparefn));
-  }
-});
-
-
-/***/ }),
-
-/***/ "6102":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "7333":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 19.1.2.1 Object.assign(target, source, ...)
-var getKeys = __webpack_require__("0d58");
-var gOPS = __webpack_require__("2621");
-var pIE = __webpack_require__("52a7");
-var toObject = __webpack_require__("4bf8");
-var IObject = __webpack_require__("626a");
-var $assign = Object.assign;
-
-// should work with symbols and should have deterministic property order (V8 bug)
-module.exports = !$assign || __webpack_require__("79e5")(function () {
-  var A = {};
-  var B = {};
-  // eslint-disable-next-line no-undef
-  var S = Symbol();
-  var K = 'abcdefghijklmnopqrst';
-  A[S] = 7;
-  K.split('').forEach(function (k) { B[k] = k; });
-  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-  var T = toObject(target);
-  var aLen = arguments.length;
-  var index = 1;
-  var getSymbols = gOPS.f;
-  var isEnum = pIE.f;
-  while (aLen > index) {
-    var S = IObject(arguments[index++]);
-    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
-    var length = keys.length;
-    var j = 0;
-    var key;
-    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-  } return T;
-} : $assign;
-
-
-/***/ }),
-
-/***/ "7514":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
-var $export = __webpack_require__("5ca1");
-var $find = __webpack_require__("0a49")(5);
-var KEY = 'find';
-var forced = true;
-// Shouldn't skip holes
-if (KEY in []) Array(1)[KEY](function () { forced = false; });
-$export($export.P + $export.F * forced, 'Array', {
-  find: function find(callbackfn /* , that = undefined */) {
-    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
-  }
-});
-__webpack_require__("9c6c")(KEY);
-
-
-/***/ }),
-
-/***/ "d36e":
+/***/ "1028":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/fundraiser/FundraiserLowerBody.vue?vue&type=template&id=3529afe2&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container is-fluid white-bg"},[_c('div',{staticClass:"fundraiser-body__tab-section"},[_c('div',{staticClass:"fundraiser-lower__body-wrapper"},[_c('div',{staticClass:"tabs is-toggle"},[_c('div',{staticClass:"tabs__bottom-line"}),_c('ul',[_c('li',{class:{'is-active': _vm.currentTab === 1},on:{"click":function($event){_vm.currentTab = 1}}},[_c('a',[_vm._v("Home")])]),_c('li',{class:{'is-active': _vm.currentTab === 2},on:{"click":function($event){_vm.currentTab = 2}}},[_c('a',[_vm._v("Donors ("+_vm._s(_vm.donationsByAmount.length)+")")])]),_c('li',{class:{'is-active': _vm.currentTab === 3},on:{"click":function($event){_vm.currentTab = 3}}},[_c('a',[_vm._v("Shares ("+_vm._s(_vm.fundraiser.shared_count)+")")])]),_c('li',{class:{'is-active': _vm.currentTab === 4},on:{"click":function($event){_vm.currentTab = 4}}},[_c('a',[_vm._v("Comments ("+_vm._s(_vm.fundraiser.comments_count)+")")])]),_c('li',{class:{'is-active': _vm.currentTab === 5},on:{"click":function($event){_vm.currentTab = 5}}},[_c('a',[_vm._v("Updates ("+_vm._s(_vm.fundraiser.updates_count)+")")])])])]),_c('div',{staticClass:"columns fundraiser-lower__columns"},[_c('div',{staticClass:"column is-8 fundraiser-lower__left-column"},[_c('transition-group',{attrs:{"name":"stretch"}},[(_vm.currentTab === 1)?_c('div',{key:"1",staticClass:"fundraiser-lower__tabs-tab"},[_c('div',{staticClass:"tab-section tab-section__updates"},[(_vm.canEdit)?_c('p',{},[(_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.closeEditor()}}},[_vm._v("Stop editing")]):_vm._e(),(!_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.openEditor()}}},[_vm._v("Edit this section")]):_vm._e()]):_vm._e(),_c('h2',[_vm._v("More Info")]),_c('InlineRichTextEditor',{ref:"fundraiserParticipant",attrs:{"error-text":"This field can't be empty","value":_vm.fundraiser.intro_text,"edition-is-enabled":_vm.editing,"placeholder":"Add an intro text for this fundraiser","location":"fundraiser.intro_text"}})],1),_c('div',{staticClass:"tab-section tab-section__updates"},[_c('h2',[_vm._v("Updates "),_c('span',[(_vm.editing)?_c('a',{staticClass:"button is-rounded is-outlined is-medium is-pulled-right",on:{"click":function($event){_vm.addNewUpdate()}}},[_vm._v("Add a new update")]):_vm._e()])]),(_vm.newUpdate)?_c('InlineRichTextEditor',{ref:"newUpdate",staticClass:"new-update-wrapper",attrs:{"error-text":"This field can't be empty","value":_vm.tempUpdateContent,"edition-is-enabled":_vm.editing,"default-open":true,"placeholder":"Add an update"},on:{"edit:close":function($event){_vm.closeNewUpdate()},"edit:save":function($event){_vm.saveNewUpdate()}}}):_vm._e(),_c('div',{staticClass:"user-optional__updates-wrapper"},[_c('FundraiserUpdates',{attrs:{"updates":_vm.updates,"count":_vm.updatesCount,"fundraiser-id":_vm.fundraiser.fundraiser_id,"maxchar":"700"}}),(_vm.moreUpdates)?_c('button',{staticClass:"button is-warning is-load-more",on:{"click":function($event){_vm.loadMoreUpdates()}}},[_vm._v("Load more updates")]):_vm._e()],1)],1),(_vm.canEdit)?_c('p',[(_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.closeEditor()}}},[_vm._v("Stop editing")]):_vm._e()]):_vm._e(),_c('h2',[_vm._v("Nonprofit Organization")]),_c('div',{staticClass:"tab-section tab-section__header"},[_c('FundraiserNonprofitDetails',{attrs:{"fundraiser":_vm.fundraiser}})],1),_c('div',{staticClass:"tab-section tab-section__comments"},[_c('h2',[_vm._v("Comments")]),_c('Comments',{attrs:{"comments":_vm.comments,"more-comments":_vm.moreComments,"fundraiser-id":_vm.fundraiser.fundraiser_id},on:{"loadMoreComments":function($event){_vm.loadMoreComments()}}}),_c('router-link',{staticClass:"button fundraiser-lower__cta-start is-info is-large",attrs:{"to":"/fundraiser/create"}},[_vm._v("Start your own fundraiser")])],1)]):_vm._e(),(_vm.currentTab === 2)?_c('div',{key:"2",staticClass:"fundraiser-lower__tabs-tab"},[_c('DonorsList',{attrs:{"section-title":"Donors","view-all-cta":"View all","donations":_vm.donationsByAmount,"layout":"horizontal"},on:{"loadDonationsTab":function($event){_vm.loadTab(2)}}})],1):_vm._e(),(_vm.currentTab === 4)?_c('div',{key:"4",staticClass:"fundraiser-lower__tabs-tab"},[_c('h2',[_vm._v("Comments")]),_c('Comments',{attrs:{"comments":_vm.comments,"more-comments":_vm.moreComments,"fundraiser-id":_vm.fundraiser.fundraiser_id},on:{"loadMoreComments":function($event){_vm.loadMoreComments()}}}),_c('div',{staticClass:"button fundraiser-lower__cta-start is-info is-large"},[_vm._v("\n                Start your own fundraiser\n              ")])],1):_vm._e(),(_vm.currentTab === 5)?_c('div',{key:"5",staticClass:"fundraiser-lower__tabs-tab"},[_c('div',{staticClass:"tab-section tab-section__updates"},[(_vm.canEdit)?_c('p',{},[(_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.closeEditor()}}},[_vm._v("Stop editing")]):_vm._e(),(!_vm.editing)?_c('a',{staticClass:"button is-light is-rounded is-medium",on:{"click":function($event){_vm.openEditor()}}},[_vm._v("Edit this section")]):_vm._e()]):_vm._e(),_c('h2',[_vm._v("Updates "),_c('span',[(_vm.editing)?_c('a',{staticClass:"button is-rounded is-outlined is-medium is- is-pulled-right",on:{"click":function($event){_vm.addNewUpdate()}}},[_vm._v("Add a new update")]):_vm._e()])]),(_vm.newUpdate)?_c('InlineRichTextEditor',{ref:"newUpdate",attrs:{"error-text":"This field can't be empty","value":_vm.tempUpdateContent,"edition-is-enabled":_vm.editing,"default-open":true,"placeholder":"Add an update"},on:{"edit:close":function($event){_vm.closeNewUpdate()},"edit:save":function($event){_vm.saveNewUpdate()}}}):_vm._e(),_c('div',{staticClass:"user-optional__updates-wrapper"},[_c('FundraiserUpdates',{attrs:{"updates":_vm.updates,"count":_vm.updatesCount,"fundraiser-id":_vm.fundraiser.fundraiser_id,"maxchar":"700"}}),(_vm.moreUpdates)?_c('button',{staticClass:"button is-warning is-load-more",on:{"click":function($event){_vm.loadMoreUpdates()}}},[_vm._v("Load more updates")]):_vm._e()],1)],1)]):_vm._e()])],1),_c('transition',{attrs:{"name":"fade"}},[(_vm.currentTab === 1)?_c('div',{key:"2",staticClass:"column is-4 fundraiser-lower__right-column"},[(_vm.fundraiser.giving_levels)?_c('div',{staticClass:"tab-section tab-section__giving-level"},[_c('h4',{staticClass:"lower-body-right-column__title"},[_vm._v("Choose a giving level")]),_c('div',{staticClass:"user-optional__giving-level-wrapper"},_vm._l((_vm.fundraiser.giving_levels),function(givingLevel,index){return _c('FundraiserGivingLevel',{key:index,attrs:{"level":givingLevel,"fundraiser":_vm.fundraiser}})}))]):_vm._e(),_c('div',{staticClass:"top-donors"},[_c('DonorsList',{attrs:{"section-title":"Donors","view-all-cta":"View all","donations":_vm.donationsByAmount,"layout":"top"},on:{"loadDonationsTab":function($event){_vm.loadTab(2)}}})],1),_c('div',{staticClass:"recent-donations"},[_c('DonorsList',{attrs:{"section-title":"Recent Donations","view-all-cta":"View all","donations":_vm.donationsByDate,"layout":"recent"},on:{"loadDonationsTab":function($event){_vm.loadTab(2)}}}),(_vm.moreDonations)?_c('button',{staticClass:"button is-warning is-load-more",on:{"click":function($event){_vm.loadMoreDonations()}}},[_vm._v("Load more donations")]):_vm._e()],1),_c('div',{staticClass:"raised-through-sharing"},[_c('DonorsList',{attrs:{"section-title":"Raised Through Sharing","view-all-cta":"View all","donations":_vm.donationsBySharing,"limit":3,"layout":"sharing"},on:{"loadDonationsTab":function($event){_vm.loadTab(3)}}}),(_vm.moreDonations)?_c('button',{staticClass:"button is-warning is-load-more",on:{"click":function($event){_vm.loadMoreDonations()}}},[_vm._v("Load more donations")]):_vm._e()],1),_c('div',{staticClass:"button fundraiser-pledge__cta is-success is-large"},[_c('DonateAction',{attrs:{"fundraiser-id":_vm.fundraiser.fundraiser_id,"trigger":"fundraiser/lower/right/donors"}},[_vm._v("\n                Donate now\n              ")])],1)]):_vm._e()])],1)])])])}
-var staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/input/InlineVideoEditor.vue?vue&type=template&id=e90769de&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:("field-wrapper layout-" + _vm.layout)},[_c('UserDialog',{attrs:{"spinner":_vm.userDialogSpinner,"state":_vm.userDialogModal,"disable-close":_vm.userDialogSpinner},on:{"modal:close":function($event){_vm.cancelEdition()}}},[_c('div',{attrs:{"slot":"header"},slot:"header"},[_vm._v(_vm._s(_vm.userDialogHeading))]),_c('div',{attrs:{"slot":"content"},slot:"content"},[_c('p',[_vm._v(_vm._s(_vm.userDialogMessage))])])]),_c('div',{staticClass:"columns editable-field-wrapper"},[_c('div',{staticClass:"column is-6"},[_c('div',{on:{"click":function($event){_vm.openEdition()}}},[_c('transition',{attrs:{"name":"slide-fade"}},[(_vm.item.src || _vm.youTubeID && _vm.fieldIsOpen)?_c('VuePlyrWrapper',[_c('vue-plyr',{key:_vm.videoSource,ref:("plyr_" + _vm._uid)},[_c('div',{attrs:{"data-plyr-provider":"youtube","data-plyr-embed-id":_vm.videoSource}})])],1):_vm._e()],1)],1),(_vm.fieldIsOpen)?_c('div',{staticClass:"video-input-wrapper"},[_c('div',{staticClass:"field"},[_vm._m(0),_c('div',{staticClass:"field-body"},[_c('div',{staticClass:"field"},[_c('p',{staticClass:"control"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.fieldValue),expression:"fieldValue"}],staticClass:"input-editable-value",attrs:{"type":"text"},domProps:{"value":(_vm.fieldValue)},on:{"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }_vm.saveVideo()},"input":function($event){if($event.target.composing){ return; }_vm.fieldValue=$event.target.value}}})])])])])]):_vm._e()]),_c('div',{staticClass:"column is-6 image-control"},[_c('div',{staticClass:"action-icons-wrapper",class:{'is-open': _vm.fieldIsOpen}},[_c('div',{staticClass:"action-icon-wrapper",class:{'hide-icon': _vm.fieldIsOpen},on:{"click":function($event){_vm.openEdition()}}},[_c('Icons',{staticClass:"action-icon",attrs:{"icon":"pencil","iconwidth":"16px","iconheight":"16px","color":"#FFF"}})],1),_c('div',{staticClass:"action-icon-wrapper",class:{'hide-icon': !_vm.fieldIsOpen},on:{"click":function($event){_vm.saveVideo()}}},[_c('Icons',{staticClass:"action-icon",attrs:{"icon":"check","iconwidth":"16px","iconheight":"16px","color":"#FFF"}})],1),_c('div',{staticClass:"action-icon-wrapper",class:{'hide-icon': !_vm.fieldIsOpen},on:{"click":function($event){_vm.cancelEdition()}}},[_c('Icons',{staticClass:"action-icon",attrs:{"icon":"close-circle","iconwidth":"16px","iconheight":"16px","color":"#FFF"}})],1)]),_c('div',{staticClass:"button-wrapper"},[_c('button',{staticClass:"button is-warning",on:{"click":function($event){_vm.removeVideo()}}},[_vm._v("Remove")]),(_vm.fieldIsOpen)?_c('button',{staticClass:"button is-success",on:{"click":function($event){_vm.saveVideo()}}},[_vm._v("Save")]):_vm._e()]),(_vm.fieldIsOpen)?_c('div',{staticClass:"instructions"},[_c('p',[_vm._v("Paste the YouTube URL of your video, like https://www.youtube.com/watch?v=yXrlhebkpIQ")]),_c('p',[_vm._v("Click save to process and store the video.")])]):_vm._e()])]),_c('transition',{attrs:{"name":"slide-fade"}},[(_vm.errorMessage)?_c('div',{staticClass:"editable-error-message-wrapper"},[_c('span',{staticClass:"editable-error-message"},[_vm._v(_vm._s(_vm.errorMessage))])]):_vm._e()])],1)}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"field-label is-normal"},[_c('label',{staticClass:"label"},[_vm._v("Paste here the YouTube URL of your video:")])])}]
 
 
-// CONCATENATED MODULE: ./src/components/fundraiser/FundraiserLowerBody.vue?vue&type=template&id=3529afe2&scoped=true&
+// CONCATENATED MODULE: ./src/components/input/InlineVideoEditor.vue?vue&type=template&id=e90769de&scoped=true&
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom.iterable.js
-var web_dom_iterable = __webpack_require__("ac6a");
+// EXTERNAL MODULE: ./src/components/general/Icons.vue + 4 modules
+var Icons = __webpack_require__("4706");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.find.js
-var es6_array_find = __webpack_require__("7514");
+// EXTERNAL MODULE: ./src/util/validator.js
+var validator = __webpack_require__("2e53");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
-var es6_promise = __webpack_require__("551c");
+// EXTERNAL MODULE: ./src/components/plugins/LazyLoadedImage.js
+var LazyLoadedImage = __webpack_require__("623f");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.object.assign.js
-var es6_object_assign = __webpack_require__("f751");
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/input/InlineVideoEditor.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.array.sort.js
-var es6_array_sort = __webpack_require__("55dd");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/fundraiser/FundraiserLowerBody.vue?vue&type=script&lang=js&
 
 
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var FundraiserLowerBodyvue_type_script_lang_js_ = ({
-  props: ['fundraiser', 'editing', 'canEdit'],
-  components: {
-    FundraiserGivingLevel: function FundraiserGivingLevel() {
-      return __webpack_require__.e(/* import() */ 44).then(__webpack_require__.bind(null, "fb73"));
-    },
-    FundraiserNonprofitDetails: function FundraiserNonprofitDetails() {
-      return __webpack_require__.e(/* import() */ 39).then(__webpack_require__.bind(null, "f0d4"));
-    },
-    FundraiserUpdates: function FundraiserUpdates() {
-      return __webpack_require__.e(/* import() */ 26).then(__webpack_require__.bind(null, "5b1f"));
-    },
-    Comments: function Comments() {
-      return Promise.all(/* import() */[__webpack_require__.e(0), __webpack_require__.e(23)]).then(__webpack_require__.bind(null, "74e1"));
-    },
-    DonateAction: function DonateAction() {
-      return __webpack_require__.e(/* import() */ 57).then(__webpack_require__.bind(null, "eaf4"));
-    },
-    DonorsList: function DonorsList() {
-      return __webpack_require__.e(/* import() */ 17).then(__webpack_require__.bind(null, "e1cb"));
-    },
-    InlineRichTextEditor: function InlineRichTextEditor() {
-      return Promise.all(/* import() */[__webpack_require__.e(71), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, "1573"));
-    }
-  },
+/* harmony default export */ var InlineVideoEditorvue_type_script_lang_js_ = ({
+  props: ['item', 'layout', 'location', 'openId', 'openDefault'],
   data: function data() {
     return {
-      currentTab: 1,
-      mounted: false,
-      tempUpdateContent: '',
-      newUpdate: false
+      croppaObject: {},
+      ratio: 1,
+      userDialogSpinner: true,
+      userDialogModal: false,
+      userDialogHeading: 'Processing...',
+      userDialogMessage: '',
+      fieldIsOpen: false,
+      fieldValue: this.value,
+      youTubeID: null,
+      errorMessage: '',
+      blurTimeout: null
     };
   },
+  components: {
+    Icons: Icons["default"],
+    LazyLoadedImage: LazyLoadedImage["default"],
+    VuePlyrWrapper: function VuePlyrWrapper() {
+      return Promise.all(/* import() */[__webpack_require__.e(13), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, "1096"));
+    },
+    UserDialog: function UserDialog() {
+      return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.bind(null, "b7cf"));
+    }
+  },
   computed: {
-    moreComments: function moreComments() {
-      return false;
-      return showMoreButton(this.$store.state, 'comments');
-    },
-    moreDonations: function moreDonations() {
-      return false;
-      return showMoreButton(this.$store.state, 'donations');
-    },
-    moreUpdates: function moreUpdates() {
-      return false;
-      return showMoreButton(this.$store.state, 'updates');
-    },
-    donationsByAmount: function donationsByAmount() {
-      var donations = this.$store.state.donations.data;
-
-      if (!donations) {
-        return [];
+    calculateWidth: function calculateWidth() {
+      if (typeof window === 'undefined' || typeof this.$el === 'undefined') {
+        return 400;
       }
 
-      var sorted = donations.sort(function (a, b) {
-        return b.amount - a.amount;
-      });
-      return sorted;
+      var wrapperWidth = this.$el.clientWidth;
+      return wrapperWidth < 400 ? wrapperWidth - 6 : 400;
     },
-    donationsByDate: function donationsByDate() {
-      var donations = this.$store.state.donations.data;
-      var sorted = donations.slice().sort(function (a, b) {
-        return b.timestamp - a.timestamp;
-      });
-      return sorted;
+    calculateHeight: function calculateHeight() {
+      return this.calculateWidth * this.ratio;
     },
-    donationsBySharing: function donationsBySharing() {
-      var donations = this.$store.state.donations.data;
-
-      if (!donations) {
-        return [];
+    videoSource: function videoSource() {
+      if (!this.fieldIsOpen) {
+        return this.item.src || this.youTubeID;
       }
 
-      var sorted = donations.slice().sort(function (a, b) {
-        return a.amount > b.amount;
-      });
-      var modified = [];
-
-      if (sorted.length) {
-        donations.map(function (part) {
-          var p = Object.assign({}, part);
-          p.amount *= 2.2;
-          modified.push(p);
-        });
-        return modified;
-      }
-
-      return [];
-    },
-    updatesCount: function updatesCount() {
-      return this.$store.state.updates.data.length;
-    },
-    updates: function updates() {
-      return this.$store.state.updates.data;
-    },
-    comments: function comments() {
-      return this.$store.state.comments.data;
-    },
-    common: function common() {
-      return this.$store.state.common;
+      return this.youTubeID || this.item.src;
+    }
+  },
+  mounted: function mounted() {
+    if (this.openDefault) {
+      this.openEdition();
     }
   },
   methods: {
-    /**
-     * Fetch the comments for this fundraiser.
-     * This was abstracted to a function so that it can be reused.
-     */
-    loadMoreComments: function loadMoreComments() {
-      var paginated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-      if (this.moreComments) {
-        var fundraiserId = this.$route.params.id;
-        return this.$store.dispatch('FETCH_COMMENTS', {
-          fundraiserId: fundraiserId,
-          paginated: paginated
-        }).then(function (data) {
-          return data;
-        }).catch(function (err) {
-          console.log(err);
-        });
-      }
+    cancelEdition: function cancelEdition() {
+      this.fieldIsOpen = false;
+      this.errorMessage = '';
+      this.userDialogModal = false;
+      this.$emit('edition:close', this._uid);
     },
+    openEdition: function openEdition() {
+      this.fieldIsOpen = true;
 
-    /**
-     * Fetch the donations for this fundraiser.
-     * This was abstracted to a function so that it can be reused.
-     */
-    loadMoreDonations: function loadMoreDonations() {
-      var paginated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-      if (this.moreDonations) {
-        var fundraiserId = this.$route.params.id;
-        return this.$store.dispatch('FETCH_DONATIONS', {
-          fundraiserId: fundraiserId,
-          paginated: paginated
-        }).then(function (data) {
-          return data;
-        }).catch(function (err) {
-          console.log(err);
-        });
+      if (this.videoSource) {
+        this.fieldValue = "https://www.youtube.com/watch?v=".concat(this.videoSource);
       }
-    },
 
-    /**
-     * Fetch the updates for this fundraiser.
-     * This was abstracted to a function so that it can be reused.
-     */
-    loadMoreUpdates: function loadMoreUpdates() {
+      this.$emit('edition:open', this._uid);
+    },
+    removeVideo: function removeVideo() {
       var _this = this;
 
-      var paginated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      return new Promise(function (resolve, reject) {
-        var fundraiserId = _this.$route.params.id;
-
-        if (_this.moreUpdates) {
-          return _this.$store.dispatch('FETCH_UPDATES', {
-            fundraiserId: fundraiserId,
-            paginated: paginated
-          }).then(function (data) {
-            resolve(data);
-          }).catch(function (err) {
-            reject(err);
-          });
-        }
-      });
+      if (typeof this.item.id !== 'undefined') {
+        this.$store.dispatch('REMOVE_VIDEO', {
+          location: this.location,
+          route: this.$route,
+          id: this.item.id
+        }).then(function () {
+          _this.cancelEdition();
+        }).catch(function (err) {
+          console.log(err);
+        });
+      } else {
+        this.cancelEdition();
+      }
     },
 
-    /**
-     * Select the active tab.
+    /*
+     * This method will save an image to the library if it can be validated.
      */
-    loadTab: function loadTab(tab) {
-      this.currentTab = tab;
-    },
-
-    /**
-     * Recursively keep loading updates until the update in the params is found.
-     * Or until there are no more updates to load from the DB.
-     * This is needed when the visiting URL includes an update parameter,
-     * which indicates a visitor coming from a shared update in the fundraiser page.
-     */
-    loadUpdatesAndScrollTo: function loadUpdatesAndScrollTo(itemId) {
+    saveVideo: function saveVideo() {
       var _this2 = this;
 
-      var target = "#update_".concat(itemId);
-      var targetExists = this.updates.find(function (update) {
-        return update.id === parseInt(itemId, 10);
-      });
+      if (!this.youTubeID) {
+        this.userDialogModal = true;
+        this.userDialogMessage = 'Please add a valid YouTube URL.';
+        this.userDialogSpinner = false;
+        return;
+      }
 
-      if (targetExists) {
-        this.$scrollTo(target, {
-          offset: -200
-        });
-      } else if (this.moreUpdates) {
-        return this.loadMoreUpdates().then(function (data) {
-          if (data) {
-            return _this2.loadUpdatesAndScrollTo(itemId);
-          }
+      this.userDialogModal = true;
+      this.userDialogSpinner = true;
+
+      if (this.item.src) {
+        this.$store.dispatch('UPDATE_VIDEO', {
+          location: this.location,
+          route: this.$route,
+          oldSrc: this.item.src,
+          newSrc: this.youTubeID
+        }).then(function () {
+          _this2.userDialogSpinner = false;
+          _this2.userDialogMessage = 'The video has been updated.';
+          setTimeout(function () {
+            _this2.cancelEdition();
+          }, 4000);
         }).catch(function (err) {
-          return err;
+          console.log(err);
+          _this2.userDialogSpinner = false;
+          _this2.userDialogMessage = 'An error occurred. Please try again.';
         });
       } else {
-        return {
-          code: 404
-        };
-      }
-    },
-
-    /**
-     * Recursively keep loading comments until the selected one in the params is found.
-     * Or until there are no more comments to load from the DB.
-     * This is needed when the visiting URL includes a comment parameter,
-     * which indicates a visitor coming from a shared comment in the fundraiser page.
-     */
-    loadCommentsAndScrollTo: function loadCommentsAndScrollTo(itemId) {
-      var _this3 = this;
-
-      var target = "#comment_".concat(itemId);
-      var targetExists = false;
-      this.comments.forEach(function (comment) {
-        if (comment.id === parseInt(itemId, 10)) {
-          targetExists = true;
-        }
-
-        if (comment.replies && comment.replies.length) {
-          var a = comment.replies.find(function (reply) {
-            return reply.id === parseInt(itemId, 10);
-          });
-
-          if (a) {
-            targetExists = true;
-          }
-        }
-      });
-
-      if (targetExists) {
-        this.$scrollTo(target, {
-          offset: -200
-        });
-      } else if (this.moreComments && this.mounted) {
-        return this.loadMoreComments().then(function (data) {
-          if (data) {
-            return _this3.loadCommentsAndScrollTo(itemId);
-          }
+        this.$store.dispatch('ADD_VIDEO', {
+          location: this.location,
+          route: this.$route,
+          youTubeID: this.youTubeID
+        }).then(function () {
+          _this2.userDialogSpinner = false;
+          _this2.userDialogMessage = 'The video has been added.';
+          setTimeout(function () {
+            _this2.cancelEdition();
+          }, 4000);
         }).catch(function (err) {
-          return err;
+          console.log(err);
+          _this2.userDialogSpinner = false;
+          _this2.userDialogMessage = 'An error occurred. Please try again.';
         });
-      } else {
-        return {
-          code: 404
-        };
       }
-    },
-    closeEditor: function closeEditor() {
-      this.$emit('edit:close');
-    },
-    openEditor: function openEditor() {
-      this.$emit('edit:open');
-    },
-    addNewUpdate: function addNewUpdate() {
-      this.newUpdate = true;
-    },
-    closeNewUpdate: function closeNewUpdate() {
-      this.newUpdate = false;
-      this.tempUpdateContent = '';
-    },
-    saveNewUpdate: function saveNewUpdate() {
-      this.$store.dispatch('ADD_NEW_UPDATE', {
-        fundraiserId: this.fundraiser.fundraiser_id,
-        update: this.tempUpdateContent
-      }).then(function () {
-        console.log('update added');
-      }).catch(function (err) {
-        console.log(err);
-      });
-    }
-  },
-
-  /**
-   * Load updates, comments and donations on the mounted hook.
-   * Below-the-fold items, are only loaded in the client, not in the server.
-   */
-  mounted: function mounted() {
-    var _this4 = this;
-
-    if (this.moreUpdates && this.$store.state.updates.current === 1) {
-      this.loadMoreUpdates();
-    }
-
-    if (this.moreComments && this.$store.state.comments.current === 1) {
-      this.loadMoreComments();
-    }
-
-    if (this.moreDonations && this.$store.state.donations.current === 1) {
-      this.loadMoreDonations();
-    }
-    /**
-     * If there's an update ID in the URL params, recursively load updates and scroll to them.
-     */
-
-
-    var updateId = this.$route.query.update_id;
-
-    if (updateId && this.moreUpdates) {
-      this.currentTab = 5;
-      setTimeout(function () {
-        _this4.loadUpdatesAndScrollTo(updateId);
-      }, 4500);
-    }
-    /**
-     * If there's a comment ID in the URL params, recursively load comments and scroll to them.
-     */
-
-
-    var commentId = this.$route.query.comment_id;
-
-    if (commentId && this.moreComments) {
-      this.currentTab = 4;
-      setTimeout(function () {
-        _this4.loadCommentsAndScrollTo(commentId);
-      }, 4500);
     }
   },
   watch: {
-    /**
-     * Automatically load a new set of updates if the user chooses the Updates tab.
-     * This way there are 2x updates shown in the tab compared to the main (default) home view,
-     * where there are by default just 1x updates being shown.
+    /*
+     * Close this instance if another one was opened.
      */
-    currentTab: function currentTab(newVal) {
-      if (newVal === 5) {
-        if (this.moreUpdates) {
-          this.loadMoreUpdates();
+    openId: function openId(newValue) {
+      if (this.fieldIsOpen) {
+        if (newValue !== this._uid) {
+          this.fieldIsOpen = false;
         }
+      }
+    },
+    fieldValue: function fieldValue(videoURL) {
+      var videoID = validator["b" /* getYouTubeID */](videoURL);
+
+      if (videoID) {
+        this.youTubeID = videoID;
+      } else {
+        this.youTubeID = null;
       }
     }
   }
 });
-/**
- * Helper function to determine if the show more button should appear or not.
- */
-
-function showMoreButton(state, arg) {
-  var limit = state[arg].limit;
-  var current = state[arg].current;
-  var count = state.fundraiser["".concat(arg, "_count")];
-  var totalPages = Math.ceil(count / limit);
-  return totalPages >= current;
-}
-// CONCATENATED MODULE: ./src/components/fundraiser/FundraiserLowerBody.vue?vue&type=script&lang=js&
- /* harmony default export */ var fundraiser_FundraiserLowerBodyvue_type_script_lang_js_ = (FundraiserLowerBodyvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/fundraiser/FundraiserLowerBody.vue?vue&type=style&index=0&id=3529afe2&scoped=true&lang=scss&
-var FundraiserLowerBodyvue_type_style_index_0_id_3529afe2_scoped_true_lang_scss_ = __webpack_require__("267e");
+// CONCATENATED MODULE: ./src/components/input/InlineVideoEditor.vue?vue&type=script&lang=js&
+ /* harmony default export */ var input_InlineVideoEditorvue_type_script_lang_js_ = (InlineVideoEditorvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./src/components/input/InlineVideoEditor.vue?vue&type=style&index=0&id=e90769de&scoped=true&lang=scss&
+var InlineVideoEditorvue_type_style_index_0_id_e90769de_scoped_true_lang_scss_ = __webpack_require__("2b8e");
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
-// CONCATENATED MODULE: ./src/components/fundraiser/FundraiserLowerBody.vue
+// CONCATENATED MODULE: ./src/components/input/InlineVideoEditor.vue
 
 
 
@@ -734,29 +302,244 @@ var componentNormalizer = __webpack_require__("2877");
 /* normalize component */
 
 var component = Object(componentNormalizer["a" /* default */])(
-  fundraiser_FundraiserLowerBodyvue_type_script_lang_js_,
+  input_InlineVideoEditorvue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
   null,
-  "3529afe2",
+  "e90769de",
   null
   
 )
 
-component.options.__file = "FundraiserLowerBody.vue"
-/* harmony default export */ var FundraiserLowerBody = __webpack_exports__["default"] = (component.exports);
+component.options.__file = "InlineVideoEditor.vue"
+/* harmony default export */ var InlineVideoEditor = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "f751":
+/***/ "2b8e":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineVideoEditor_vue_vue_type_style_index_0_id_e90769de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("7e4f");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineVideoEditor_vue_vue_type_style_index_0_id_e90769de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineVideoEditor_vue_vue_type_style_index_0_id_e90769de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InlineVideoEditor_vue_vue_type_style_index_0_id_e90769de_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "2e53":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return validateEmail; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return validateName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return validatePassword; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return validatePasswordLength; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return validatePasswordNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return validatePasswordCapital; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return validatePasswordLower; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return validatePasswordSpecial; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return validateCreditCardNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return validateExpirationDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return validateZipCode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return validateTextNoHtml; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return validateURL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getYouTubeID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatNumber; });
+/* harmony import */ var core_js_modules_es6_regexp_match__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("4917");
+/* harmony import */ var core_js_modules_es6_regexp_match__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_match__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("a481");
+/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("6b54");
+/* harmony import */ var core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_to_string__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+// Source: https://stackoverflow.com/a/1373724
+function validateEmail(email) {
+  var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/; // eslint-disable-line max-len
+
+  return re.test(String(email).toLowerCase());
+}
+function validateName(name) {
+  if (name && name.length >= 2) {
+    return true;
+  }
+
+  return false;
+}
+function validatePassword(password) {
+  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W|_])[A-Za-z\d\W|_]{8,}/;
+  return re.test(String(password));
+}
+function validatePasswordLength(password) {
+  return password.length >= 8;
+}
+function validatePasswordNumber(password) {
+  var re = /^(?=.*\d)/;
+  return re.test(String(password));
+}
+function validatePasswordCapital(password) {
+  var re = /^(?=.*[A-Z])/;
+  return re.test(String(password));
+}
+function validatePasswordLower(password) {
+  var re = /^(?=.*[a-z])/;
+  return re.test(String(password));
+}
+function validatePasswordSpecial(password) {
+  var re = /\W|_/g;
+  return re.test(String(password));
+}
+function validateCreditCardNumber(number) {
+  if (number) {
+    return number.toString().length === 16;
+  }
+
+  return false;
+}
+function validateExpirationDate(month, year) {
+  var d = new Date();
+  var currentYear = d.getFullYear() - 2000;
+
+  if (year > currentYear) {
+    return true;
+  }
+
+  if (month >= d.getMonth() && year === currentYear) {
+    return true;
+  }
+
+  return false;
+}
+function validateZipCode(code) {
+  if (code) {
+    return code.toString().length === 5;
+  }
+
+  return false;
+}
+function validateTextNoHtml(text, allowEmpty) {
+  var re = /<[a-z/][\s\S]*>/i;
+
+  if (!re.test(text)) {
+    if (!text || text.replace(/[\n\r]/g, '').length === 0) {
+      if (allowEmpty) {
+        return true;
+      }
+
+      return false;
+    }
+
+    return true;
+  }
+
+  return false;
+}
+function validateURL(url) {
+  var re = /^((http|https):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/;
+
+  if (re.test(url)) {
+    return true;
+  }
+
+  return false;
+}
+function getYouTubeID(url) {
+  if (!url) {
+    return null;
+  }
+
+  var re = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/; // eslint-disable-line no-useless-escape
+
+  var match = url.match(re);
+
+  if (match && match[2].length === 11) {
+    return match[2];
+  }
+
+  return null;
+}
+function formatNumber(newVal, oldVal, max) {
+  var notANumber = newVal && isNaN(newVal.charAt(newVal.length - 1));
+  var tooLarge = newVal && newVal.length > max;
+
+  if (notANumber || tooLarge) {
+    return oldVal;
+  }
+
+  return newVal;
+}
+
+/***/ }),
+
+/***/ "3846":
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.1 Object.assign(target, source)
-var $export = __webpack_require__("5ca1");
+// 21.2.5.3 get RegExp.prototype.flags()
+if (__webpack_require__("9e1e") && /./g.flags != 'g') __webpack_require__("86cc").f(RegExp.prototype, 'flags', {
+  configurable: true,
+  get: __webpack_require__("0bfb")
+});
 
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__("7333") });
 
+/***/ }),
+
+/***/ "4917":
+/***/ (function(module, exports, __webpack_require__) {
+
+// @@match logic
+__webpack_require__("214f")('match', 1, function (defined, MATCH, $match) {
+  // 21.1.3.11 String.prototype.match(regexp)
+  return [function match(regexp) {
+    'use strict';
+    var O = defined(this);
+    var fn = regexp == undefined ? undefined : regexp[MATCH];
+    return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));
+  }, $match];
+});
+
+
+/***/ }),
+
+/***/ "6b54":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+__webpack_require__("3846");
+var anObject = __webpack_require__("cb7c");
+var $flags = __webpack_require__("0bfb");
+var DESCRIPTORS = __webpack_require__("9e1e");
+var TO_STRING = 'toString';
+var $toString = /./[TO_STRING];
+
+var define = function (fn) {
+  __webpack_require__("2aba")(RegExp.prototype, TO_STRING, fn, true);
+};
+
+// 21.2.5.14 RegExp.prototype.toString()
+if (__webpack_require__("79e5")(function () { return $toString.call({ source: 'a', flags: 'b' }) != '/a/b'; })) {
+  define(function toString() {
+    var R = anObject(this);
+    return '/'.concat(R.source, '/',
+      'flags' in R ? R.flags : !DESCRIPTORS && R instanceof RegExp ? $flags.call(R) : undefined);
+  });
+// FF44- RegExp#toString has a wrong name
+} else if ($toString.name != TO_STRING) {
+  define(function toString() {
+    return $toString.call(this);
+  });
+}
+
+
+/***/ }),
+
+/***/ "7e4f":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

@@ -1,6 +1,12 @@
 <template>
   <header class="site-header" id="site-header">
     <div class="container">
+      <Icons
+        iconwidth="32px"
+        iconheight="32px"
+        icon="email"
+        class="share-email" />
+
       <div class="header-top d-flex justify-content-between align-items-center py-1">
         <router-link to="/" class="logo-link">
           <img src="@/assets/img/logo-rideforgood-400x139.png" alt="CalendarForGood">
@@ -57,8 +63,13 @@
 </template>
 
 <script>
+import Icons from '@/components/general/Icons.vue';
+
 export default {
   name: 'AppHeaderx',
+  components: {
+    Icons
+  }
 };
 </script>
 

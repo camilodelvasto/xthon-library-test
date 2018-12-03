@@ -1,481 +1,326 @@
-((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[43,59],{
+((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[43],{
 
-/***/ "2de0":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "6c29":
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "85e6":
+/***/ "3c16":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/donate/DonateThankYou.vue?vue&type=template&id=780754b4&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',{staticClass:"modal-title"},[_vm._v("Thank you for donating")]),_c('form',[(_vm.loggedIn)?_c('div',[_vm._m(0),_vm._m(1)]):_vm._e(),(_vm.emailFound && !_vm.loggedIn)?_c('div',[_c('p',[_vm._v("We sent you a receipt. Your email matches an existing account. Enter your password to add this donation to your account. Doing that will also display your profile photo next to your donation and comment on "),(_vm.parent === 'fundraiser' && _vm.fundraiser.participant)?_c('span',[_vm._v(_vm._s(_vm.fundraiser.participant.name))]):_vm._e(),(_vm.parent === 'nonprofit')?_c('span',[_vm._v(_vm._s(_vm.nonprofit.NAME))]):_vm._e(),_vm._v("'s fundraiser page.")])]):_vm._e(),(!_vm.emailFound && !_vm.loggedIn)?_c('div',[_c('p',[_vm._v("We emailed you a receipt. To have your photo show next to your donation on "),(_vm.parent === 'fundraiser' && _vm.fundraiser.participant)?_c('span',[_vm._v(_vm._s(_vm.fundraiser.participant.name))]):_vm._e(),(_vm.parent === 'nonprofit')?_c('span',[_vm._v(_vm._s(_vm.nonprofit.NAME))]):_vm._e(),_vm._v("'s page of donations, receive access to all our websites and enjoy a host of features, create a free account with us via one of these services:")]),_c('LogInModal',{attrs:{"layout":"social-signup"}}),_c('p',[_vm._v("Or add a password to create an account here:")])],1):_vm._e(),(!_vm.loggedIn)?_c('div',[_c('InputPassword',{attrs:{"label":"Password","required":true,"duplicate":true,"provide-feedback":true},on:{"input:valid":function($event){_vm.validateAllFields()},"input:invalid":function($event){_vm.validateAllFields()},"input:password":function($event){_vm.form.password = $event; _vm.errorMessage = ''},"input:passwordConfirmation":function($event){_vm.form.passwordConfirmation = $event; _vm.errorMessage = ''}}}),_c('div',{staticClass:"form-submit-wrapper",on:{"click":function($event){$event.preventDefault();_vm.submitPassword()}}},[_c('button',{staticClass:"button is-large is-danger",attrs:{"disabled":_vm.submitButtonDisabled}},[_vm._v("Submit")]),_vm._m(2)])],1):_vm._e()])])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('p',[_vm._v("We sent you a receipt. You can also access your donation in the future via "),_c('a',[_vm._v("My Account.")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ul',[_c('li',[_vm._v("{ Return to Susan's fundraser }")]),_c('li',[_vm._v("{ Create your own fundraiser fundraser }")]),_c('li',[_vm._v("{ Donate to support us }")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"small-text"},[_vm._v("By clicking Submit, you agree to the "),_c('a',[_vm._v("Terms and Conditions")]),_vm._v(".")])}]
-
-
-// CONCATENATED MODULE: ./src/components/donate/DonateThankYou.vue?vue&type=template&id=780754b4&scoped=true&
-
-// EXTERNAL MODULE: ./src/components/general/Icons.vue + 4 modules
-var Icons = __webpack_require__("4706");
-
-// EXTERNAL MODULE: ./src/components/general/LogInModal.vue + 4 modules
-var LogInModal = __webpack_require__("e3b4");
-
-// EXTERNAL MODULE: ./src/components/input/InputPassword.vue + 4 modules
-var InputPassword = __webpack_require__("9c9c");
-
-// EXTERNAL MODULE: ./src/util/validator.js
-var validator = __webpack_require__("2e53");
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/donate/DonateThankYou.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ var DonateThankYouvue_type_script_lang_js_ = ({
-  props: ['parent', 'fundraiser', 'nonprofit'],
-  data: function data() {
-    return {
-      form: {},
-      emailFound: false,
-      submitButtonDisabled: false
-    };
-  },
-  components: {
-    Icons: Icons["default"],
-    InputPassword: InputPassword["default"],
-    LogInModal: LogInModal["default"]
-  },
-  computed: {
-    email: function email() {
-      return this.$store.state.userActions.donation.email;
-    },
-    loggedIn: function loggedIn() {
-      return this.$store.state.user.loggedIn;
-    }
-  },
-  methods: {
-    validateAllFields: function validateAllFields() {
-      var validPass = validator["g" /* validatePassword */](this.form.password);
-      var validPassConf = validPass && this.form.password === this.form.passwordConfirmation;
-
-      if (validPass && validPassConf || validPass && this.emailFound) {
-        // eslint-disable-line no-mixed-operators
-        this.submitButtonDisabled = false;
-      } else {
-        this.submitButtonDisabled = true;
-      }
-    },
-    submitPassword: function submitPassword() {
-      var _this = this;
-
-      this.submitButtonDisabled = true;
-      return this.$store.dispatch('CREATE_USER', {
-        email: this.email,
-        password: this.form.password
-      }).then(function (data) {
-        _this.$emit('success', {
-          data: data
-        });
-      }).catch(function (err) {
-        _this.$emit('err', {
-          err: err
-        });
-
-        console.log(err);
-      });
-    }
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    // get a response on whether the email has been already used
-    return this.$store.dispatch('LOOK_UP_EMAIL', {
-      email: this.email
-    }).then(function (data) {
-      if (data) {
-        _this2.emailFound = true;
-      } else {
-        _this2.emailFound = false;
-      }
-    }).catch(function (err) {
-      console.log('error: ', err);
-    });
-  }
-});
-// CONCATENATED MODULE: ./src/components/donate/DonateThankYou.vue?vue&type=script&lang=js&
- /* harmony default export */ var donate_DonateThankYouvue_type_script_lang_js_ = (DonateThankYouvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/donate/DonateThankYou.vue?vue&type=style&index=0&id=780754b4&scoped=true&lang=scss&
-var DonateThankYouvue_type_style_index_0_id_780754b4_scoped_true_lang_scss_ = __webpack_require__("f8bd");
-
-// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__("2877");
-
-// CONCATENATED MODULE: ./src/components/donate/DonateThankYou.vue
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(componentNormalizer["a" /* default */])(
-  donate_DonateThankYouvue_type_script_lang_js_,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  "780754b4",
-  null
-  
-)
-
-component.options.__file = "DonateThankYou.vue"
-/* harmony default export */ var DonateThankYou = __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "acfb":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LogInModal_vue_vue_type_style_index_0_id_2cbdc909_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("6c29");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LogInModal_vue_vue_type_style_index_0_id_2cbdc909_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LogInModal_vue_vue_type_style_index_0_id_2cbdc909_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8454");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LogInModal_vue_vue_type_style_index_0_id_2cbdc909_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "e3b4":
+/***/ "73e9":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/general/LogInModal.vue?vue&type=template&id=2cbdc909&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"modal",class:{'is-active': _vm.showingLoginModal},on:{"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }_vm.validateSubmit()}}},[_c('div',{staticClass:"modal-background",on:{"click":function($event){_vm.closeLoginBox()}}}),_c('div',{staticClass:"modal-content donate-view donate-view__wrapper inner-close small-modal"},[_c('h1',{staticClass:"title-centered"},[_vm._t("heading",[(_vm.loggedIn)?_c('span',[_vm._v("Your account")]):_vm._e(),(!_vm.loggedIn && !_vm.register)?_c('span',[_vm._v("Login")]):_vm._e(),(!_vm.loggedIn && _vm.register)?_c('span',[_vm._v("Register")]):_vm._e()])],2),_vm._t("intro",[(!_vm.loggedIn)?_c('p',{staticClass:"is-centered"},[_vm._v("Please log in with your email and password:")]):_vm._e()]),_c('div',{staticClass:"centered"},[(_vm.loggedIn)?_c('p',[_vm._v("You are logged in as "+_vm._s(_vm.userName))]):_vm._e(),(_vm.loggedIn)?_c('UserManagementLinks',{attrs:{"layout":"header"},on:{"goto:account":function($event){_vm.closeLoginBox()}}}):_vm._e(),(_vm.loggedIn)?_c('div',{on:{"click":function($event){_vm.logUserOut()}}},[_c('a',[_vm._v("Log Out »")])]):_vm._e()],1),_c('transition',{attrs:{"name":"slide-fade","mode":"out-in"}},[(!_vm.loggedIn)?_c('div',[_c('form',{on:{"keyup":function($event){if(!('button' in $event)&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }_vm.validateSubmit()}}},[(_vm.requireName)?_c('InputName',{attrs:{"label":"Email (for the receipt):","required":true},on:{"input:valid":function($event){_vm.validateAllFields()},"input:invalid":function($event){_vm.validateAllFields()},"input:first":function($event){_vm.form.firstname = $event; _vm.errorMessage = ''},"input:last":function($event){_vm.form.lastname = $event; _vm.errorMessage = ''}}}):_vm._e(),_c('InputEmail',{attrs:{"label":"Email","required":true},on:{"input:valid":function($event){_vm.validateAllFields()},"input:invalid":function($event){_vm.validateAllFields()},"input:email":function($event){_vm.setEmail($event)}}}),_c('InputPassword',{attrs:{"label":"Password","required":true,"duplicate":_vm.register,"provide-feedback":_vm.register,"error-message":_vm.errorMessage},on:{"input:valid":function($event){_vm.validateAllFields()},"input:invalid":function($event){_vm.validateAllFields()},"input:password":function($event){_vm.form.password = $event; _vm.errorMessage = ''},"input:passwordConfirmation":function($event){_vm.form.passwordConfirmation = $event; _vm.errorMessage = ''}}})],1),_c('div',{staticClass:"columns form-column__wrapper form-column__extra-padded input-line password-input-wrapper"},[_c('div',{staticClass:"column is-5 form-column__label-column input-label"}),_c('div',{staticClass:"column is-5 form-column__input-column"},[_c('ModalForgetPassword',{key:_vm.forgetPasswordEmail,attrs:{"email":_vm.forgetPasswordEmail}})],1)]),_c('div',{staticClass:"columns is-centered"},[_c('div',{staticClass:"form-submit-wrapper",on:{"click":function($event){$event.preventDefault();_vm.loginOrRegister()}}},[_c('button',{staticClass:"button is-large is-danger",attrs:{"disabled":_vm.submitButtonDisabled}},[_vm._v("Submit")])])]),_c('SocialLogin',[_c('div',{staticClass:"social-login-wrapper columns is-centered",attrs:{"slot":"header"},slot:"header"},[_c('p',{staticClass:"is-centered"},[_vm._v("Or with one of the following services:")])])])],1):_vm._e()]),_c('button',{staticClass:"modal-close is-large",attrs:{"aria-label":"close"},on:{"click":function($event){$event.preventDefault();_vm.closeLoginBox()}}})],2)]),(_vm.layout === 'social-signup')?_c('div',[_c('SocialLogin',{attrs:{"show-only":_vm.showOnly}})],1):_vm._e(),(_vm.layout === 'app-header')?_c('div',[(!_vm.loggedIn)?_c('div',[_c('span',{on:{"click":function($event){_vm.openLoginBox()}}},[_c('a',[_vm._v("Login")])]),_vm._v("\n      |\n      "),_c('span',{on:{"click":function($event){_vm.openLoginBox()}}},[_c('a',[_vm._v("Register")])])]):_vm._e(),(_vm.loggedIn)?_c('div',{on:{"click":function($event){_vm.openLoginBox()}}},[_vm._t("logged",[_c('a',[_vm._v(_vm._s(_vm.userName)+" »")])])],2):_vm._e()]):_vm._e(),(!_vm.layout)?_c('div',[(!_vm.loggedIn)?_c('div',{staticClass:"trigger"},[_c('span',{on:{"click":function($event){_vm.openLoginBox()}}},[_vm._t("trigger")],2)]):_vm._e(),_vm._t("intro")],2):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5d2593d3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/ExplorePage.vue?vue&type=template&id=d8f134f4&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"explore__wrapper",class:("version" + _vm.version)},[(!_vm.version || _vm.version === 1)?_c('div',[_c('AppHeader',{attrs:{"layout":"home"}}),_c('section',{staticClass:"examples__section-wrapper"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Examples of Volunteerathons done to raise money")]),_c('NonprofitFundraisers',{attrs:{"fundraisers":_vm.fundraisers,"limit":"5"}})],1)]),_c('section',{staticClass:"find-nonprofits__section-wrapper"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Find a nonprofit")]),_c('p',{staticClass:"section-intro"},[_vm._v("Search our directory of over 800,000 IRS nonprofits that you can make tax-deductible donations to or raise money for. The search will take you to their profiles on our site where you can donate to them:")]),(_vm.canRender)?_c('NonprofitAjaxSearch',{attrs:{"placeholder":"Enter a nonprofit name","standalone":true},on:{"selected":function($event){_vm.goToNonprofit($event)}}}):_vm._e()],1)]),_c('NonprofitForm',{attrs:{"submit-button-label":"Submit"}},[_c('div',{attrs:{"slot":"heading"},slot:"heading"},[_c('h1',{staticClass:"section-title title title-blue"},[_vm._v("Start Your Own Volunteerathon")])])]),_c('section',{staticClass:"other-sites__section-wrapper"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Explore our other websites")]),_c('p',[_vm._v("We have many websites to help nonprofits and their supporters raise awareness and raise money for their causes. Click the images below to visit them.")]),_c('div',{staticClass:"columns is-multiline"},_vm._l((_vm.otherSites),function(site,key){return _c('div',{staticClass:"column is-4"},[_c('a',{attrs:{"href":site.url,"target":"_blank","alt":site.name}},[_c('LazyLoadedImage',{staticClass:"other-sites-img__wrapper",class:("other-sites-" + key),attrs:{"src":site.imgsrc,"is-background":true}})],1)])})),_c('div',{staticClass:"columns is-centered align-center"},[_c('transition-group',{attrs:{"name":"list-complete"}},[(!_vm.showMoreWebsitesNotice)?_c('p',{key:_vm._uid + 1,staticClass:"list-complete-item"},[_c('button',{staticClass:"button is-medium is-warning",on:{"click":function($event){$event.preventDefault();_vm.showMoreWebsitesNotice = true}}},[_vm._v("View all")])]):_vm._e(),(_vm.showMoreWebsitesNotice)?_c('p',{key:_vm._uid + 2,staticClass:"list-complete-item"},[_vm._v("More websites are coming soon. Please return to view them.")]):_vm._e()])],1)])]),_c('WaysSupport',{attrs:{"version":_vm.version || 1}},[_c('div',{attrs:{"slot":"heading"},slot:"heading"},[_c('h1',{staticClass:"section-title title title-blue"},[_vm._v("Ways to support our nonprofit’s work")])])]),_c('AppFooter')],1):_vm._e(),(_vm.version === 2)?_c('div',[_c('AppHeader',{attrs:{"layout":"page"}}),_c('section',{staticClass:"find-nonprofits__section-wrapper"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Find a nonprofit")]),_c('p',{staticClass:"section-intro"},[_vm._v("Search our directory of over 800,000 IRS nonprofits that you can make tax-deductible donations to or raise money for. The search will take you to their profiles on our site where you can donate to them:")]),(_vm.canRender)?_c('NonprofitAjaxSearch',{attrs:{"standalone":true},on:{"selected":function($event){_vm.goToNonprofit($event)}}}):_vm._e()],1)]),_c('section',{staticClass:"examples__section-wrapper"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Examples of Volunteerathons done to raise money")]),_c('NonprofitFundraisers',{attrs:{"fundraisers":_vm.fundraisers,"limit":"5"}})],1)]),_c('NonprofitForm',{staticClass:"start-your-own__section-wrapper",attrs:{"submit-button-label":"Submit"}},[_c('div',{attrs:{"slot":"heading"},slot:"heading"},[_c('h1',[_vm._v("Start Your Own Volunteerathon")])])]),_c('section',{staticClass:"other-sites__section-wrapper"},[_c('div',{staticClass:"container"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Explore our other websites")]),_c('p',[_vm._v("We have many websites to help nonprofits and their supporters raise awareness and raise money for their causes. Click the images below to visit them.")]),_c('div',{staticClass:"columns is-multiline"},_vm._l((_vm.otherSites),function(site,key){return _c('div',{staticClass:"column is-4"},[_c('a',{attrs:{"href":site.url,"target":"_blank","alt":site.name}},[_c('LazyLoadedImage',{staticClass:"other-sites-img__wrapper",class:("other-sites-" + key),attrs:{"src":site.imgsrc,"is-background":true}})],1)])})),_c('div',{staticClass:"columns is-centered align-center"},[_c('transition-group',{attrs:{"name":"list-complete"}},[(!_vm.showMoreWebsitesNotice)?_c('p',{key:_vm._uid + 1,staticClass:"list-complete-item"},[_c('button',{staticClass:"button is-medium is-warning",on:{"click":function($event){$event.preventDefault();_vm.showMoreWebsitesNotice = true}}},[_vm._v("View all")])]):_vm._e(),(_vm.showMoreWebsitesNotice)?_c('p',{key:_vm._uid + 2,staticClass:"list-complete-item"},[_vm._v("More websites are coming soon. Please return to view them.")]):_vm._e()])],1)])]),_c('WaysSupport',{attrs:{"version":_vm.version}},[_c('div',{attrs:{"slot":"heading"},slot:"heading"},[_c('h1',{staticClass:"section-title title"},[_vm._v("Ways to support our nonprofit’s work")])])]),_c('AppFooter')],1):_vm._e()])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/general/LogInModal.vue?vue&type=template&id=2cbdc909&scoped=true&
+// CONCATENATED MODULE: ./src/views/ExplorePage.vue?vue&type=template&id=d8f134f4&scoped=true&
 
-// EXTERNAL MODULE: ./src/components/general/Icons.vue + 4 modules
-var Icons = __webpack_require__("4706");
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.promise.js
+var es6_promise = __webpack_require__("551c");
 
-// EXTERNAL MODULE: ./src/components/login/ModalForgetPassword.vue + 4 modules
-var ModalForgetPassword = __webpack_require__("853f");
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
+var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
-// EXTERNAL MODULE: ./src/components/input/InputEmail.vue + 4 modules
-var InputEmail = __webpack_require__("ba03");
+// EXTERNAL MODULE: ./node_modules/vue-meta/lib/vue-meta.js
+var vue_meta = __webpack_require__("0a89");
+var vue_meta_default = /*#__PURE__*/__webpack_require__.n(vue_meta);
 
-// EXTERNAL MODULE: ./src/components/input/InputName.vue + 4 modules
-var InputName = __webpack_require__("a4ab");
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/views/ExplorePage.vue?vue&type=script&lang=js&
 
-// EXTERNAL MODULE: ./src/components/input/InputPassword.vue + 4 modules
-var InputPassword = __webpack_require__("9c9c");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-// EXTERNAL MODULE: ./src/components/login/SocialLogin.vue + 4 modules
-var SocialLogin = __webpack_require__("fa8f");
 
-// EXTERNAL MODULE: ./src/util/validator.js
-var validator = __webpack_require__("2e53");
+external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(vue_meta_default.a);
+/* harmony default export */ var ExplorePagevue_type_script_lang_js_ = ({
+  name: 'explore',
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/general/LogInModal.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-/* harmony default export */ var LogInModalvue_type_script_lang_js_ = ({
-  props: ['layout', 'login', 'signup', 'showOnly', 'display', 'requireName', 'register'],
+  /**
+   * Uses dynamic import to speed up page performance.
+   * See https://webpack.js.org/guides/code-splitting/ for reference.
+   */
   components: {
-    Icons: Icons["default"],
-    InputEmail: InputEmail["default"],
-    InputName: InputName["a" /* default */],
-    InputPassword: InputPassword["default"],
-    ModalForgetPassword: ModalForgetPassword["a" /* default */],
-    SocialLogin: SocialLogin["a" /* default */],
-    UserManagementLinks: function UserManagementLinks() {
-      return __webpack_require__.e(/* import() */ 10).then(__webpack_require__.bind(null, "90de"));
+    AppFooter: function AppFooter() {
+      return __webpack_require__.e(/* import() */ 3).then(__webpack_require__.bind(null, "5637"));
+    },
+    AppHeader: function AppHeader() {
+      return Promise.all(/* import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, "a609"));
+    },
+    LazyLoadedImage: function LazyLoadedImage() {
+      return __webpack_require__.e(/* import() */ 64).then(__webpack_require__.bind(null, "623f"));
+    },
+    TopMenu: function TopMenu() {
+      return __webpack_require__.e(/* import() */ 57).then(__webpack_require__.bind(null, "3a84"));
+    },
+    NonprofitAjaxSearch: function NonprofitAjaxSearch() {
+      return Promise.all(/* import() */[__webpack_require__.e(6), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, "d662"));
+    },
+    NonprofitFundraisers: function NonprofitFundraisers() {
+      return __webpack_require__.e(/* import() */ 15).then(__webpack_require__.bind(null, "7436"));
+    },
+    NonprofitForm: function NonprofitForm() {
+      return __webpack_require__.e(/* import() */ 5).then(__webpack_require__.bind(null, "61d5"));
+    },
+    WaysSupport: function WaysSupport() {
+      return __webpack_require__.e(/* import() */ 53).then(__webpack_require__.bind(null, "d990"));
     }
   },
   data: function data() {
     return {
-      showingLoginModal: this.display || false,
-      errorMessage: '',
-      welcomeMessage: '',
-      submitButtonDisabled: true,
-      form: {},
-      forgetPasswordEmail: '',
-      timeout: null
+      showMoreWebsitesNotice: false,
+      canRender: false,
+      showSocialMedia: false,
+      otherSites: [{
+        name: 'Quitathon',
+        url: 'https://quitathon.org',
+        imgsrc: '/static/assets/images/other-sites/quitathon.png'
+      }, {
+        name: 'Loseathon',
+        url: 'https://loseathon.org',
+        imgsrc: '/static/assets/images/other-sites/loseathon.png'
+      }, {
+        name: 'Bike for Good',
+        url: 'https://bike-for-good.org',
+        imgsrc: '/static/assets/images/other-sites/bike-for-good.png'
+      }, {
+        name: 'Polar plunge for Good',
+        url: 'https://polar-plunge-for-good.org',
+        imgsrc: '/static/assets/images/other-sites/polar-plunge-for-good.png'
+      }, {
+        name: 'Give it up for Good',
+        url: 'https://give-it-up.org',
+        imgsrc: '/static/assets/images/other-sites/give-it-up-for-good.png'
+      }, {
+        name: 'Run for Good',
+        url: 'https://run-for-good.org',
+        imgsrc: '/static/assets/images/other-sites/run-for-good.png'
+      }]
     };
   },
+  metaInfo: function metaInfo() {
+    return {
+      title: 'Explore',
+      meta: [{
+        vmid: 'og:title',
+        property: 'og:title',
+        content: 'Explore multiple ways to do good!'
+      }, {
+        vmid: 'description',
+        name: 'description',
+        content: 'Check out Volunteerathons to donate to and nonprofits that are doing good deeds and that also need your help.'
+      }, {
+        vmid: 'twitter:card',
+        property: 'twitter:card',
+        content: 'summary_large_image'
+      }, {
+        vmid: 'og:image:width',
+        property: 'og:image:width',
+        content: '1280'
+      }, {
+        vmid: 'og:image:height',
+        property: 'og:image:height',
+        content: '680'
+      }, {
+        vmid: 'og:image',
+        property: 'og:image',
+        content: "".concat(this.$store.state.extra.request.protocol, "://").concat(this.$store.state.extra.request.host, "/public/volunteerathon-screenshot.png")
+      }]
+    };
+  },
+  mounted: function mounted() {
+    this.canRender = true;
+  },
+  asyncData: function asyncData(_ref) {
+    var store = _ref.store,
+        ein = _ref.route.params.ein;
+    return new Promise(function (resolve, reject) {
+      return store.dispatch('FETCH_EXPLORE_FUNDRAISERS').then(function (data) {
+        resolve(data);
+      }).catch(function (err) {
+        reject(err);
+      });
+    });
+  },
   computed: {
-    loggedIn: function loggedIn() {
-      return this.$store.state.user.loggedIn;
+    fundraisers: function fundraisers() {
+      return this.$store.state.explore.fundraisers.data;
     },
-    userName: function userName() {
-      return this.$store.state.user.fullname;
+    version: function version() {
+      return parseInt(this.$route.query.version, 10) || 0;
     }
   },
   methods: {
-    setEmail: function setEmail(event) {
-      this.form.email = event;
-      this.forgetPasswordEmail = event;
-    },
-    openLoginBox: function openLoginBox() {
-      this.showingLoginModal = true;
-    },
-    closeLoginBox: function closeLoginBox() {
-      this.showingLoginModal = false;
-      clearTimeout(this.timeout);
-      this.$emit('modal:close');
-    },
-    logUserOut: function logUserOut() {
-      this.$store.commit('LOG_OFF', {
-        status: false
-      });
-      this.closeLoginBox();
-    },
-    validateSubmit: function validateSubmit() {
-      if (!this.submitButtonDisabled) {
-        this.logUserIn();
-      }
-    },
-    loginOrRegister: function loginOrRegister() {
-      if (this.register) {
-        this.closeLoginBox();
-      } else {
-        this.logUserIn();
-      }
-    },
-    validateAllFields: function validateAllFields() {
-      var validName = validator["f" /* validateName */](this.form.firstname) && validator["f" /* validateName */](this.form.lastname);
-      var validPass = validator["g" /* validatePassword */](this.form.password) && !this.register || validator["g" /* validatePassword */](this.form.password) && this.form.password === this.form.passwordConfirmation;
-
-      if (validPass && validator["d" /* validateEmail */](this.form.email) && (validName && this.requireName || !this.requireName)) {
-        this.submitButtonDisabled = false;
-      } else {
-        this.submitButtonDisabled = true;
-      }
-    },
-    logUserIn: function logUserIn() {
-      var _this = this;
-
-      if (!this.submitButtonDisabled) {
-        this.submitButtonDisabled = true;
-        return this.$store.dispatch('AUTHENTICATE_USER', {
-          email: this.form.email,
-          password: this.form.password
-        }).then(function (data) {
-          if (data) {
-            // provide some feedback
-            _this.welcomeMessage = "You are logged in, ".concat(_this.userName);
-
-            _this.$emit('modal:logged');
-
-            _this.timeout = setTimeout(function () {
-              _this.showingLoginModal = false;
-            }, 6000);
-          } else {
-            _this.validateAllFields();
-
-            _this.errorMessage = 'Wrong password or email does not exist';
-          }
-        }).catch(function (err) {
-          console.log('error: ', err);
-        });
-      }
-    }
-  },
-  watch: {
-    display: function display(value) {
-      if (value) {
-        this.showingLoginModal = value;
-      }
+    goToNonprofit: function goToNonprofit(nonprofit) {
+      this.$router.push("/nonprofit/".concat(nonprofit.EIN));
     }
   }
 });
-// CONCATENATED MODULE: ./src/components/general/LogInModal.vue?vue&type=script&lang=js&
- /* harmony default export */ var general_LogInModalvue_type_script_lang_js_ = (LogInModalvue_type_script_lang_js_); 
-// EXTERNAL MODULE: ./src/components/general/LogInModal.vue?vue&type=style&index=0&id=2cbdc909&scoped=true&lang=scss&
-var LogInModalvue_type_style_index_0_id_2cbdc909_scoped_true_lang_scss_ = __webpack_require__("acfb");
+// CONCATENATED MODULE: ./src/views/ExplorePage.vue?vue&type=script&lang=js&
+ /* harmony default export */ var views_ExplorePagevue_type_script_lang_js_ = (ExplorePagevue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./src/views/ExplorePage.vue?vue&type=style&index=0&lang=scss&
+var ExplorePagevue_type_style_index_0_lang_scss_ = __webpack_require__("3c16");
+
+// EXTERNAL MODULE: ./src/views/ExplorePage.vue?vue&type=style&index=1&id=d8f134f4&scoped=true&lang=scss&
+var ExplorePagevue_type_style_index_1_id_d8f134f4_scoped_true_lang_scss_ = __webpack_require__("f140");
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
-// CONCATENATED MODULE: ./src/components/general/LogInModal.vue
+// CONCATENATED MODULE: ./src/views/ExplorePage.vue
+
 
 
 
@@ -485,29 +330,43 @@ var componentNormalizer = __webpack_require__("2877");
 /* normalize component */
 
 var component = Object(componentNormalizer["a" /* default */])(
-  general_LogInModalvue_type_script_lang_js_,
+  views_ExplorePagevue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
   null,
-  "2cbdc909",
+  "d8f134f4",
   null
   
 )
 
-component.options.__file = "LogInModal.vue"
-/* harmony default export */ var LogInModal = __webpack_exports__["default"] = (component.exports);
+component.options.__file = "ExplorePage.vue"
+/* harmony default export */ var ExplorePage = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "f8bd":
+/***/ "8454":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "e72c":
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "f140":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateThankYou_vue_vue_type_style_index_0_id_780754b4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("2de0");
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateThankYou_vue_vue_type_style_index_0_id_780754b4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateThankYou_vue_vue_type_style_index_0_id_780754b4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_1_id_d8f134f4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("e72c");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_1_id_d8f134f4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_1_id_d8f134f4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* unused harmony reexport * */
- /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DonateThankYou_vue_vue_type_style_index_0_id_780754b4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+ /* unused harmony default export */ var _unused_webpack_default_export = (_node_modules_mini_css_extract_plugin_dist_loader_js_ref_8_oneOf_1_0_node_modules_css_loader_index_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_sass_loader_lib_loader_js_ref_8_oneOf_1_3_node_modules_style_resources_loader_lib_index_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExplorePage_vue_vue_type_style_index_1_id_d8f134f4_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ })
 

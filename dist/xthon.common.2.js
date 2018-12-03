@@ -1,4 +1,4 @@
-((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[2,59],{
+((typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] = (typeof self !== 'undefined' ? self : this)["webpackJsonpxthon"] || []).push([[2,55],{
 
 /***/ "6c29":
 /***/ (function(module, exports, __webpack_require__) {
@@ -647,7 +647,7 @@ var validator = __webpack_require__("2e53");
     ModalForgetPassword: ModalForgetPassword["a" /* default */],
     SocialLogin: SocialLogin["a" /* default */],
     UserManagementLinks: function UserManagementLinks() {
-      return __webpack_require__.e(/* import() */ 10).then(__webpack_require__.bind(null, "90de"));
+      return __webpack_require__.e(/* import() */ 4).then(__webpack_require__.bind(null, "90de"));
     }
   },
   data: function data() {

@@ -44,7 +44,7 @@
             <ul class="navbar-nav w-100">
               <li class="nav-item"><router-link to="/" class="nav-link">Home</router-link></li>
               <li class="nav-item"><router-link to="/" class="nav-link">About Us</router-link></li>
-              <li class="nav-item"><router-link to="/" class="nav-link">Volunteer</router-link></li>
+              <li class="nav-item"><router-link to="/fundraiser/6" class="nav-link">Fundraiser</router-link></li>
               <li class="nav-item"><router-link to="/" class="nav-link">Nonprofits</router-link></li>
               <li class="nav-item"><router-link to="/" class="nav-link">Contact Us</router-link></li>
               <li class="nav-item ml-auto"><router-link to="/" class="nav-link bg-secondary">Donate</router-link></li>
